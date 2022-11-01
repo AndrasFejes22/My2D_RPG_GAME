@@ -16,8 +16,8 @@ public class Player extends Entity{
     //player character screen position
     public final int screenX;
     public final int screenY;
-    public int hasKey = 0;
-    public int hasBoots = 0;
+    //public int hasKey = 0;
+    //public int hasBoots = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
         this.gp = gp;
@@ -46,20 +46,7 @@ public class Player extends Entity{
     }
 
     public void getPlayerImage(){
-        /*
-        try {
-            up1 = ImageIO.read(getClass().getResource("/player/boy_up_1.png"));
-            up2 = ImageIO.read(getClass().getResource("/player/boy_up_2.png"));
-            down1 = ImageIO.read(getClass().getResource("/player/boy_down_1.png"));
-            down2 = ImageIO.read(getClass().getResource("/player/boy_down_2.png"));
-            left1 = ImageIO.read(getClass().getResource("/player/boy_left_1.png"));
-            left2 = ImageIO.read(getClass().getResource("/player/boy_left_2.png"));
-            right1 = ImageIO.read(getClass().getResource("/player/boy_right_1.png"));
-            right2 = ImageIO.read(getClass().getResource("/player/boy_right_2.png"));
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        */
+
         up1 = setup("boy_up_1");
         up2 = setup("boy_up_2");
         down1 = setup("boy_down_1");
@@ -142,44 +129,8 @@ public class Player extends Entity{
 
     public void pickUpObject(int index){
         if(index != 999){
-            //gp.obj[index] = null; //delete teh touched object, but it is too simply
 
-            String objectName = gp.obj[index].name;
 
-            switch (objectName){
-                case "Key":
-                    gp.playSoundEffect(1);
-                    hasKey++;
-                    gp.obj[index] = null;
-                    gp.ui.showMessage("You got a key!");
-                    System.out.println("Key: " + hasKey);
-                    break;
-                case "Door":
-                    if(hasKey > 0){
-                        gp.playSoundEffect(3);
-                        gp.obj[index] = null;
-                        hasKey--;
-                        gp.ui.showMessage("You opened the door!");
-                        System.out.println("Key: " + hasKey);
-                    } else {
-                        gp.ui.showMessage("You need a key!");
-                    }
-                    break;
-                case "Boots": //increase player speed
-                    gp.playSoundEffect(2);
-                    speed +=2;
-                    gp.obj[index] = null;
-                    hasBoots++;
-                    gp.ui.showMessage("You got boots!");
-                    System.out.println("Boots: " + hasBoots);
-                    break;
-                case "Chest": // game finished
-                    gp.ui.gameFinished = true;
-                    gp.stopMusic();
-                    gp.playSoundEffect(4);
-                    break;
-
-            }
 
         }
     }
