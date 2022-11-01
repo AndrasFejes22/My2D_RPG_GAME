@@ -20,6 +20,7 @@ public class Player extends Entity{
     //public int hasBoots = 0;
 
     public Player(GamePanel gp, KeyHandler keyH) {
+        super(gp);
         this.gp = gp;
         this.keyH = keyH;
 

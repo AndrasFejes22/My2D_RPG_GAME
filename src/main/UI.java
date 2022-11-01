@@ -120,6 +120,7 @@ public class UI {
 
     public void drawPauseScreen(){
 
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 80F));
         String text = "Game paused";
         int x = getForCenteredTex(text);
         int y = gp.screenHeight/2 - (gp.tileSize * 3);
