@@ -63,7 +63,7 @@ public class KeyHandler implements KeyListener {
             }
 
             //pause
-            /*
+
             if(code == KeyEvent.VK_P){
                 if(gp.gameState == gp.playState){
                     gp.gameState =gp.pauseState;
@@ -74,13 +74,14 @@ public class KeyHandler implements KeyListener {
                     gp.playMusic(0);
                 }
             }
-            */
+
         }
 
         //pause
         else if(gp.gameState == gp.pauseState){
             if(code == KeyEvent.VK_P){
                 gp.gameState = gp.playState;
+                gp.playMusic(0);
             }
         }
         else if (gp.gameState == gp.dialogueState){
