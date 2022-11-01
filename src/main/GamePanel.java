@@ -1,5 +1,6 @@
 package main;
 
+import entity.Entity;
 import entity.Player;
 import object.SuperObject;
 import tile.TileManager;
@@ -35,7 +36,8 @@ public class GamePanel extends JPanel implements Runnable{
 
     //entity and object:
     public Player player = new Player(this, keyH);
-    public SuperObject obj[] = new SuperObject[10];
+    public SuperObject[] obj = new SuperObject[10];
+    public Entity[] npc = new Entity[10];
     //tiles
     TileManager tileM = new TileManager(this);
     //collision
