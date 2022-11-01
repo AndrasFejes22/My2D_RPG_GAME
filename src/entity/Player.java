@@ -11,7 +11,7 @@ import java.io.IOException;
 
 public class Player extends Entity{
 
-    GamePanel gp;
+
     KeyHandler keyH;
     //player character screen position
     public final int screenX;
@@ -21,7 +21,7 @@ public class Player extends Entity{
 
     public Player(GamePanel gp, KeyHandler keyH) {
         super(gp);
-        this.gp = gp;
+
         this.keyH = keyH;
 
         screenX = gp.screenWidth/2 - (gp.tileSize/2);
