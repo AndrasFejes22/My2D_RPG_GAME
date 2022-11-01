@@ -38,14 +38,18 @@ public class UI {
         this.g2 = g2;
         g2.setFont(arial_40);
         g2.setColor(Color.orange);
-
+        //play state
         if(gp.gameState == gp.playState){
             //do playstate stuff later
         }
+        //pause state
         if(gp.gameState == gp.pauseState){
             drawPauseScreen();
         }
-
+        //dialogue state
+        if(gp.gameState == gp.dialogueState){
+            drawDialogueScreen();
+        }
 
 
 
@@ -115,6 +119,22 @@ public class UI {
         */
 
 
+
+    }
+
+    private void drawDialogueScreen() {
+        //create a dialogue window
+        int x = gp.tileSize * 2;
+        int y = gp.tileSize / 2;
+        int width = gp.screenWidth - (gp.tileSize * 4);
+        int height = gp.tileSize * 5;
+        drawSubWindow (x, y, width, height);
+    }
+
+    public void drawSubWindow (int x, int y, int width, int height){
+
+        Color color = new Color(0,0,0); //rgb black
+        g2.setColor(color);
 
     }
 
