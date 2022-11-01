@@ -1,9 +1,6 @@
 package main;
 
-import object.OBJ_Key;
-
 import java.awt.*;
-import java.awt.image.BufferedImage;
 import java.text.DecimalFormat;
 
 public class UI {
@@ -37,6 +34,18 @@ public class UI {
     }
 
     public void draw(Graphics2D g2){
+
+        this.g2 = g2;
+        g2.setFont(arial_40);
+        g2.setColor(Color.orange);
+
+        if(gp.gameState == gp.playState){
+            //do playstate stuff later
+        }
+        if(gp.gameState == gp.pauseState){
+            drawPauseScreen();
+        }
+
 
 
 
@@ -105,25 +114,23 @@ public class UI {
         }
         */
 
-        //sajat, pause:
-        if(gp.gameState == gp.pauseState){
-            //playtime?
-            String text;
-            int textLenght;
-            int x;
-            int y;
-
-
-            g2.setFont(arial_40);
-            g2.setColor(Color.orange);
-
-            text = "Game paused";
-            textLenght = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
-            x = gp.screenWidth/2 - textLenght/2;
-            y = gp.screenHeight/2 - (gp.tileSize * 3);
-            g2.drawString(text, x, y);
-        }
 
 
     }
+
+    public void drawPauseScreen(){
+
+        String text = "Game paused";
+        int x = getForCenteredTex(text);
+        int y = gp.screenHeight/2 - (gp.tileSize * 3);
+        //int y = gp.screenHeight/2;
+        g2.drawString(text, x, y);
+    }
+
+    public int getForCenteredTex(String text){
+        int textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        int x  = gp.screenWidth/2 - textLength/2;
+        return x;
+    }
+
 }
