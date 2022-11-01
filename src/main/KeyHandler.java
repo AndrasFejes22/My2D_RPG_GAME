@@ -27,43 +27,63 @@ public class KeyHandler implements KeyListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
+
         int code = e.getKeyCode();
-        if(code == KeyEvent.VK_W){
-            upPressed = true;
-        }
 
-        if(code == KeyEvent.VK_S){
-            downPressed = true;
-        }
-
-        if(code == KeyEvent.VK_A){
-            leftPressed = true;
-        }
-
-        if(code == KeyEvent.VK_D){
-            rightPressed = true;
-        }
-
-        //time-debug
-        if(code == KeyEvent.VK_T){
-            if(!checkDrawTime){
-                checkDrawTime = true;
-            } else if(checkDrawTime){
-                checkDrawTime = false;
+        //play state
+        if(gp.gameState == gp.playState){
+            if(code == KeyEvent.VK_W){
+                upPressed = true;
             }
+
+            if(code == KeyEvent.VK_S){
+                downPressed = true;
+            }
+
+            if(code == KeyEvent.VK_A){
+                leftPressed = true;
+            }
+
+            if(code == KeyEvent.VK_D){
+                rightPressed = true;
+            }
+
+            //time-debug
+            if(code == KeyEvent.VK_T){
+                if(!checkDrawTime){
+                    checkDrawTime = true;
+                } else if(checkDrawTime){
+                    checkDrawTime = false;
+                }
+            }
+
+            //pause
+            /*
+            if(code == KeyEvent.VK_P){
+                if(gp.gameState == gp.playState){
+                    gp.gameState =gp.pauseState;
+                    gp.stopMusic();
+                }
+                else if(gp.gameState == gp.pauseState){
+                    gp.gameState = gp.playState;
+                    gp.playMusic(0);
+                }
+            }
+            */
         }
 
         //pause
-        if(code == KeyEvent.VK_P){
-            if(gp.gameState == gp.playState){
-                gp.gameState =gp.pauseState;
-                gp.stopMusic();
-            }
-            else if(gp.gameState == gp.pauseState){
+        else if(gp.gameState == gp.pauseState){
+            if(code == KeyEvent.VK_P){
                 gp.gameState = gp.playState;
-                gp.playMusic(0);
             }
         }
+        else if (gp.gameState == gp.dialogueState){
+            if(code == KeyEvent.VK_ENTER){
+                gp.gameState = gp.playState;
+            }
+        }
+
 
 
         /*
