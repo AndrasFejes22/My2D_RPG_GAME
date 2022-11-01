@@ -152,7 +152,7 @@ public class CollisionChecker {
                     case "up":
                         entity.solidArea.y -= entity.speed; // y position where entity will be, after it moved
                         if(entity.solidArea.intersects(target[i].solidArea)){
-
+                                entity.collisionOn = true;
                                 index = i;
 
                         }
@@ -161,7 +161,7 @@ public class CollisionChecker {
                         entity.solidArea.y += entity.speed;
                         if(entity.solidArea.intersects(target[i].solidArea)){
 
-
+                            entity.collisionOn = true;
                                 index = i;
 
                         }
@@ -169,7 +169,7 @@ public class CollisionChecker {
                     case "left":
                         entity.solidArea.x -= entity.speed;
                         if(entity.solidArea.intersects(target[i].solidArea)){
-
+                            entity.collisionOn = true;
                                 index = i;
 
                         }
@@ -177,7 +177,7 @@ public class CollisionChecker {
                     case "right":
                         entity.solidArea.x += entity.speed;
                         if(entity.solidArea.intersects(target[i].solidArea)){
-
+                            entity.collisionOn = true;
                                 index = i;
 
                         }
