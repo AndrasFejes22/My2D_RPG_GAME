@@ -121,9 +121,12 @@ public class Player extends Entity{
 
     private void interactNPC(int npcIndex) {
         if(npcIndex != 999){
-            gp.gameState = gp.dialogueState;
-            gp.npc[0].speak();
+            if(gp.keyH.enterPressed == true){
+                gp.gameState = gp.dialogueState;
+                gp.npc[0].speak();
+            }
         }
+        gp.keyH.enterPressed = false;
     }
 
     public void pickUpObject(int index){

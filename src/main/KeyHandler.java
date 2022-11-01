@@ -11,6 +11,7 @@ public class KeyHandler implements KeyListener {
     public boolean downPressed;
     public boolean leftPressed;
     public boolean rightPressed;
+    public boolean enterPressed;
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
@@ -46,6 +47,10 @@ public class KeyHandler implements KeyListener {
 
             if(code == KeyEvent.VK_D){
                 rightPressed = true;
+            }
+
+            if(code == KeyEvent.VK_ENTER){
+                enterPressed = true;
             }
 
             //time-debug
