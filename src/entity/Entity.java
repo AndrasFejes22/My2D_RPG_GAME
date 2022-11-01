@@ -51,6 +51,46 @@ public class Entity {
         return image;
     }
 
+    public void setAction(){
+
+    }
+
+    public void update(){
+        setAction();
+
+        collisionOn = false;
+        gp.cChecker.checkTile(this);
+
+        //if collision is false, Entity can move
+        if(collisionOn == false){
+            switch (direction){
+                case "up":
+                    worldY = worldY - speed;
+                    break;
+                case "down":
+                    worldY = worldY + speed;
+                    break;
+                case "left":
+                    worldX = worldX - speed;
+                    break;
+                case "right":
+                    worldX = worldX + speed;
+                    break;
+            }
+        }
+
+        spriteCounter++;
+        if (spriteCounter > 12) { // moving speed (sprite)
+            if (spriteNum == 1) {
+                spriteNum = 2;
+            } else if (spriteNum == 2) {
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
+
+    }
+
     public void draw(Graphics2D g2) {
 
         BufferedImage image = null;
