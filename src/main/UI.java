@@ -130,6 +130,13 @@ public class UI {
         int width = gp.screenWidth - (gp.tileSize * 4);
         int height = gp.tileSize * 4;
         drawSubWindow (x, y, width, height);
+
+        //text in te dialogue window:
+
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 30F));
+        x += gp.tileSize;
+        y += gp.tileSize;
+        g2.drawString(currentDialogue, x, y);
     }
 
     public void drawSubWindow (int x, int y, int width, int height){

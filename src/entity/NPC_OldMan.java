@@ -38,7 +38,7 @@ public class NPC_OldMan extends Entity{
     }
 
     public void speak(){
-
+        gp.ui.currentDialogue = dialogues[0];
     }
 
     public void setAction(){ // kind of AI :)
