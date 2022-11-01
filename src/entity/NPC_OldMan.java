@@ -17,6 +17,8 @@ public class NPC_OldMan extends Entity{
         speed = 1;
 
         getImage();
+
+        setDialogue();
     }
 
     public void getImage(){
@@ -29,6 +31,14 @@ public class NPC_OldMan extends Entity{
         left2 = setup("/npc/oldman_left_2");
         right1 = setup("/npc/oldman_right_1");
         right2 = setup("/npc/oldman_right_2");
+    }
+
+    public void setDialogue(){
+        dialogues[0] = "Hello lad.";
+    }
+
+    public void speak(){
+
     }
 
     public void setAction(){ // kind of AI :)

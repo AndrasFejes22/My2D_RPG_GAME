@@ -13,6 +13,7 @@ public class UI {
     public boolean messageOn = false;
     public boolean gameFinished = false;
     public String message = "";
+    public String currentDialogue = "";
     public int messageCounter = 0;
 
     double playTime;
