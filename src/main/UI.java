@@ -16,6 +16,7 @@ public class UI {
     Font couree;
     Font terminal;
     Font bitmap;
+    Font retro;
     //BufferedImage keyImage;
     public boolean messageOn = false;
     public boolean gameFinished = false;
@@ -23,6 +24,7 @@ public class UI {
     public String currentDialogue = "";
     public int messageCounter = 0;
     public int commandNum = 0;
+    public int titleScreenState = 0;
 
     double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
@@ -38,8 +40,8 @@ public class UI {
         try {
             InputStream is = getClass().getResourceAsStream("/font/Gabriola.ttf");
             gabriola = Font.createFont(Font.TRUETYPE_FONT, is);
-            is = getClass().getResourceAsStream("/font/LCALLIG.ttf");
-            lCallig = Font.createFont(Font.TRUETYPE_FONT, is);
+            is = getClass().getResourceAsStream("/font/retro.ttf");
+            retro = Font.createFont(Font.TRUETYPE_FONT, is);
             is = getClass().getResourceAsStream("/font/PreschoolBits.ttf");
             bitmap = Font.createFont(Font.TRUETYPE_FONT, is);
         } catch (FontFormatException e) {
@@ -62,7 +64,7 @@ public class UI {
 
         // FONTS
         //g2.setFont(lCallig);
-        g2.setFont(bitmap);
+        g2.setFont(retro);
         //g2.setFont(couree);
         g2.setColor(Color.orange);
         //title state
@@ -161,7 +163,7 @@ public class UI {
         // fill the whole screen:
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         //title:
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 72F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 52F));
         String text = "Blue Boy Adventure";
         int x = getForCenteredTex(text);
         int y = gp.tileSize * 3;
@@ -179,7 +181,7 @@ public class UI {
         g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
 
         // menu:
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 32F));
 
         text = "NEW GAME";
         x = getForCenteredTex(text);
