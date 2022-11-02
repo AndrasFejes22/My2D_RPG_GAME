@@ -14,6 +14,8 @@ public class UI {
     Font gabriola;
     Font lCallig;
     Font couree;
+    Font terminal;
+    Font bitmap;
     //BufferedImage keyImage;
     public boolean messageOn = false;
     public boolean gameFinished = false;
@@ -38,8 +40,8 @@ public class UI {
             gabriola = Font.createFont(Font.TRUETYPE_FONT, is);
             is = getClass().getResourceAsStream("/font/LCALLIG.ttf");
             lCallig = Font.createFont(Font.TRUETYPE_FONT, is);
-            //is = getClass().getResourceAsStream("/font/couree.fon");
-            //couree = Font.createFont(Font.TYPE1_FONT, is);
+            is = getClass().getResourceAsStream("/font/PreschoolBits.ttf");
+            bitmap = Font.createFont(Font.TRUETYPE_FONT, is);
         } catch (FontFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -60,7 +62,7 @@ public class UI {
 
         // FONTS
         //g2.setFont(lCallig);
-        g2.setFont(gabriola);
+        g2.setFont(bitmap);
         //g2.setFont(couree);
         g2.setColor(Color.orange);
         //title state
@@ -71,6 +73,7 @@ public class UI {
         //play state
         if(gp.gameState == gp.playState){
             //do playstate stuff later
+
         }
         //pause state
         if(gp.gameState == gp.pauseState){
@@ -154,17 +157,17 @@ public class UI {
 
     private void drawTitleScreen() {
         // starting background color
-        g2.setColor(new Color(70, 120, 80));
+        g2.setColor(Color.BLACK);
         // fill the whole screen:
         g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
         //title:
-        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 72F));
         String text = "Blue Boy Adventure";
         int x = getForCenteredTex(text);
         int y = gp.tileSize * 3;
 
         //shadow:
-        g2.setColor(Color.BLACK);
+        g2.setColor(Color.GRAY);
         g2.drawString(text, x+5, y+5);
         // main text
         g2.setColor(Color.WHITE);
@@ -215,7 +218,7 @@ public class UI {
         drawSubWindow (x, y, width, height);
 
         //text in te dialogue window:
-
+        g2.setFont(gabriola);
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 30F));
         x += gp.tileSize;
         y += gp.tileSize;
