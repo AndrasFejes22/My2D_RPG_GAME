@@ -13,6 +13,7 @@ public class UI {
     Font arial_80B;
     Font gabriola;
     Font lCallig;
+    Font couree;
     //BufferedImage keyImage;
     public boolean messageOn = false;
     public boolean gameFinished = false;
@@ -30,12 +31,14 @@ public class UI {
         //arial_40 = new Font("Cambria", Font.PLAIN, 40);
         //arial_80B = new Font("Cambria", Font.BOLD, 70);
 
-
+        // from C:\Windows\Fonts
         try {
             InputStream is = getClass().getResourceAsStream("/font/Gabriola.ttf");
             gabriola = Font.createFont(Font.TRUETYPE_FONT, is);
             is = getClass().getResourceAsStream("/font/LCALLIG.ttf");
             lCallig = Font.createFont(Font.TRUETYPE_FONT, is);
+            //is = getClass().getResourceAsStream("/font/couree.fon");
+            //couree = Font.createFont(Font.TYPE1_FONT, is);
         } catch (FontFormatException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -53,7 +56,11 @@ public class UI {
     public void draw(Graphics2D g2){
 
         this.g2 = g2;
-        g2.setFont(arial_40);
+
+        // FONTS
+        //g2.setFont(lCallig);
+        g2.setFont(gabriola);
+        //g2.setFont(couree);
         g2.setColor(Color.orange);
         //play state
         if(gp.gameState == gp.playState){
