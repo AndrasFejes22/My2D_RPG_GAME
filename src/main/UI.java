@@ -1,6 +1,8 @@
 package main;
 
 import java.awt.*;
+import java.io.IOException;
+import java.io.InputStream;
 import java.text.DecimalFormat;
 
 public class UI {
@@ -9,6 +11,8 @@ public class UI {
     Graphics2D g2;
     Font arial_40;
     Font arial_80B;
+    Font gabriola;
+    Font lCallig;
     //BufferedImage keyImage;
     public boolean messageOn = false;
     public boolean gameFinished = false;
@@ -23,10 +27,22 @@ public class UI {
 
     public UI(GamePanel gp) {
         this.gp = gp;
-        arial_40 = new Font("Arial", Font.PLAIN, 40);
-        arial_80B = new Font("Arial", Font.BOLD, 70);
-        //OBJ_Key key = new OBJ_Key(gp);
-        //keyImage = key.image;
+        //arial_40 = new Font("Cambria", Font.PLAIN, 40);
+        //arial_80B = new Font("Cambria", Font.BOLD, 70);
+
+
+        try {
+            InputStream is = getClass().getResourceAsStream("/font/Gabriola.ttf");
+            gabriola = Font.createFont(Font.TRUETYPE_FONT, is);
+            is = getClass().getResourceAsStream("/font/LCALLIG.ttf");
+            lCallig = Font.createFont(Font.TRUETYPE_FONT, is);
+        } catch (FontFormatException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+
     }
 
     public void showMessage(String text){
