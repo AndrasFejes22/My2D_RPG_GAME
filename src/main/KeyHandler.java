@@ -51,7 +51,7 @@ public class KeyHandler implements KeyListener {
                 if(code == KeyEvent.VK_ENTER){
                     if(gp.ui.commandNum == 0){ //new game
                         gp.ui.titleScreenState = 1;
-                        gp.playMusic(0);
+                        //gp.playMusic(0);
                     }
                     if(gp.ui.commandNum == 1){ //load game
                         // add later
@@ -59,6 +59,39 @@ public class KeyHandler implements KeyListener {
                     if(gp.ui.commandNum == 2){ //quit game
                         System.exit(0);
                     }
+                }
+            }
+            else if(gp.ui.titleScreenState == 1){ //sub title screen
+                if(code == KeyEvent.VK_W){
+                    gp.ui.commandNum--; //az ui-ban átállítja, hogy hova rajzoljon
+                    if(gp.ui.commandNum < 0){
+                        gp.ui.commandNum = 3;
+                    }
+                }
+
+                if(code == KeyEvent.VK_S){
+                    gp.ui.commandNum++;
+                    if(gp.ui.commandNum > 3){
+                        gp.ui.commandNum = 0;
+                    }
+                }
+                if(code == KeyEvent.VK_ENTER){
+                    if(gp.ui.commandNum == 0){ //fighter
+                        gp.gameState = gp.playState;
+                        gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum == 1){ //thief
+                        gp.gameState = gp.playState;
+                        gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum == 2){ //sorcerer
+                        gp.gameState = gp.playState;
+                        gp.playMusic(0);
+                    }
+                    if(gp.ui.commandNum == 3){ //back
+                        gp.ui.titleScreenState = 0;
+                    }
+
                 }
             }
 

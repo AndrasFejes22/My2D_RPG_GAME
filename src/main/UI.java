@@ -211,7 +211,7 @@ public class UI {
 
         } else if (titleScreenState == 1){
             g2.setColor(Color.WHITE);
-            g2.setFont(g2.getFont().deriveFont(42F));
+            g2.setFont(g2.getFont().deriveFont(22F));
             String text = "Select your class!";
             int x = getForCenteredTex(text);
             int y = gp.tileSize * 3;
@@ -219,7 +219,7 @@ public class UI {
 
             text = "Fighter";
             x = getForCenteredTex(text);
-            y *= gp.tileSize * 3;
+            y += gp.tileSize * 3;
             g2.drawString(text, x, y);
             if(commandNum == 0){
                 g2.drawString(">", x-gp.tileSize, y);
@@ -227,17 +227,25 @@ public class UI {
 
             text = "Thief";
             x = getForCenteredTex(text);
-            y *= gp.tileSize * 3;
+            y += gp.tileSize;
             g2.drawString(text, x, y);
-            if(commandNum == 0){
+            if(commandNum == 1){
                 g2.drawString(">", x-gp.tileSize, y);
             }
 
             text = "Sorcerer";
             x = getForCenteredTex(text);
-            y *= gp.tileSize * 3;
+            y += gp.tileSize;
             g2.drawString(text, x, y);
-            if(commandNum == 0){
+            if(commandNum == 2){
+                g2.drawString(">", x-gp.tileSize, y);
+            }
+
+            text = "Back";
+            x = getForCenteredTex(text);
+            y += gp.tileSize * 2;
+            g2.drawString(text, x, y);
+            if(commandNum == 3){
                 g2.drawString(">", x-gp.tileSize, y);
             }
 
