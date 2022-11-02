@@ -169,6 +169,31 @@ public class UI {
         g2.setColor(Color.WHITE);
         g2.drawString(text, x, y);
 
+        //blue boy image:
+        x = gp.screenWidth / 2 - (gp.tileSize*2)/2;
+        y += gp.tileSize * 2;
+        g2.drawImage(gp.player.down1, x, y, gp.tileSize*2, gp.tileSize*2, null);
+
+        // menu:
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 48F));
+
+        text = "NEW GAME";
+        x = getForCenteredTex(text);
+        y += gp.tileSize * 3.5;
+        g2.drawString(text, x, y);
+
+        text = "LOAD GAME";
+        x = getForCenteredTex(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+        text = "QUIT";
+        x = getForCenteredTex(text);
+        y += gp.tileSize;
+        g2.drawString(text, x, y);
+
+
+
     }
 
     private void drawDialogueScreen() {
