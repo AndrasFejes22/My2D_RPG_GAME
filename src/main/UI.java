@@ -62,6 +62,11 @@ public class UI {
         g2.setFont(gabriola);
         //g2.setFont(couree);
         g2.setColor(Color.orange);
+        //title state
+        if(gp.gameState == gp.titleState){
+            drawTitleScreen();
+        }
+
         //play state
         if(gp.gameState == gp.playState){
             //do playstate stuff later
@@ -143,6 +148,17 @@ public class UI {
         */
 
 
+
+    }
+
+    private void drawTitleScreen() {
+        //title:
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 96F));
+        String text = "Blue Boy Adventure";
+        int x = getForCenteredTex(text);
+        int y = gp.tileSize * 3;
+        g2.setColor(Color.WHITE);
+        g2.drawString(text, x, y);
 
     }
 
