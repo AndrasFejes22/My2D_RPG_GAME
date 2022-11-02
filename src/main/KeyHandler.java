@@ -31,6 +31,18 @@ public class KeyHandler implements KeyListener {
 
         int code = e.getKeyCode();
 
+        //title state
+        if(gp.gameState == gp.titleState){
+            if(code == KeyEvent.VK_W){
+                gp.ui.commandNum--; //az ui-ban átállítja, hogy hova rajzoljon
+            }
+
+            if(code == KeyEvent.VK_S){
+                gp.ui.commandNum++;
+            }
+        }
+
+
         //play state
         if(gp.gameState == gp.playState){
             if(code == KeyEvent.VK_W){
