@@ -176,6 +176,33 @@ public class UI {
     }
 
     private void drawPlayerLife() {
+        int x = gp.tileSize/2;
+        int y = gp.tileSize/2;
+        int i = 0;
+
+        while (i < gp.player.maxLife/2){
+            g2.drawImage(heart_blank, x, y, null); //legyen full
+            i++;
+            x += gp.tileSize;
+        }
+
+        //reset
+        x = gp.tileSize/2;
+        y = gp.tileSize/2;
+        i = 0;
+
+        //draw current life:
+
+        while (i < gp.player.life){
+            g2.drawImage(heart_half, x, y, null);
+            i++;
+            if(i < gp.player.life){
+                g2.drawImage(heart_full, x, y, null);
+            }
+            i++;
+            x += gp.tileSize;
+        }
+
     }
 
     private void drawTitleScreen() {
