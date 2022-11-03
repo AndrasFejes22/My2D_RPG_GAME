@@ -23,7 +23,7 @@ public class EventHandler {
 
     public void checkEvent(){
 
-        if(hit(27,16, "right") == true){
+        if(hit(27,17, "right") == true){
             System.out.println("Event happens!");
             damagePit(gp.dialogueState);
         }
