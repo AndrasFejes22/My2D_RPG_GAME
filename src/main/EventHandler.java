@@ -5,20 +5,30 @@ import java.awt.*;
 public class EventHandler {
 
     GamePanel gp;
-    Rectangle eventRect;
-    int eventRectDefaultX;
-    int eventRectDefaultY;
+    //Rectangle eventRect;
+    EventRect eventRect [][];
+    //int eventRectDefaultX;
+    //int eventRectDefaultY;
 
     public EventHandler(GamePanel gp) {
         this.gp = gp;
 
-        eventRect = new Rectangle();
-        eventRect.x = 23;
-        eventRect.y = 23;
-        eventRect.width = 2;
-        eventRect.height = 2;
-        eventRectDefaultX = eventRect.x;
-        eventRectDefaultY = eventRect.y;
+        eventRect = new EventRect[gp.maxWorldRow][gp.maxWorldCol];
+
+        int col = 0;
+        int row = 0;
+
+        while (col < gp.maxWorldCol && row < gp.maxWorldRow){
+            eventRect[col][row] = new EventRect();
+            eventRect[col][row].x = 23;
+            eventRect[col][row].y = 23;
+            eventRect[col][row].width = 2;
+            eventRect[col][row].height = 2;
+            eventRect[col][row].eventRectDefaultX = eventRect[col][row].x;
+            eventRect[col][row].eventRectDefaultY = eventRect[col][row].y;
+        }
+
+
     }
 
     public void checkEvent(){
