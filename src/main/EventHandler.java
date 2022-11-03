@@ -24,15 +24,29 @@ public class EventHandler {
     public void checkEvent(){
 
         if(hit(27,17, "right") == true){
-            System.out.println("Event happens!");
+            System.out.println("Pit damage!");
             damagePit(gp.dialogueState);
         }
 
         if(hit(23,12, "up") == true){
-            System.out.println("Event happens!");
+            System.out.println("Healing!");
             healingPool(gp.dialogueState);
         }
 
+        if(hit(26,20, "right") == true){
+            System.out.println("Teleport!");
+            teleport(gp.dialogueState);
+        }
+
+
+
+    }
+
+    private void teleport(int gameState) {
+        gp.gameState = gameState;
+        gp.ui.currentDialogue = "Teleport!";
+        gp.player.worldX = gp.tileSize * 37;
+        gp.player.worldY = gp.tileSize * 10;
     }
 
     private void damagePit(int gameState) {
