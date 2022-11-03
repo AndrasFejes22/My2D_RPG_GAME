@@ -23,6 +23,17 @@ public class EventHandler {
 
     public void checkEvent(){
 
+        if(hit(27,16, "right") == true){
+            System.out.println("Event happens!");
+            damagePit(gp.dialogueState);
+        }
+
+    }
+
+    private void damagePit(int gameState) {
+        gp.gameState = gameState;
+        gp.ui.currentDialogue = "You fall into a pit!";
+        gp.player.life -= 1;
     }
 
     public boolean hit (int eventCol, int eventRow, String reqDirection){
