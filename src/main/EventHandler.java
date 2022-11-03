@@ -28,12 +28,26 @@ public class EventHandler {
             damagePit(gp.dialogueState);
         }
 
+        if(hit(23,12, "up") == true){
+            System.out.println("Event happens!");
+            healingPool(gp.dialogueState);
+        }
+
     }
 
     private void damagePit(int gameState) {
         gp.gameState = gameState;
         gp.ui.currentDialogue = "You fall into a pit!";
         gp.player.life -= 1;
+    }
+
+    private void healingPool(int gameState) {
+        if(gp.keyH.enterPressed == true){
+            gp.gameState = gameState;
+            gp.ui.currentDialogue = "You have drank water. \nYour life has been recovered!";
+            gp.player.life = gp.player.maxLife;
+        }
+
     }
 
     public boolean hit (int eventCol, int eventRow, String reqDirection){

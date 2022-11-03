@@ -96,6 +96,8 @@ public class Player extends Entity{
             // check event collision
             gp.eHandler.checkEvent();
 
+            gp.keyH.enterPressed = false;
+
             //if collision is false, player can move
             if(collisionOn == false){
                 switch (direction){
@@ -133,7 +135,7 @@ public class Player extends Entity{
                 gp.npc[0].speak();
             }
         }
-        gp.keyH.enterPressed = false;
+
     }
 
     public void pickUpObject(int index){
