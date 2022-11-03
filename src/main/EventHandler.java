@@ -7,8 +7,9 @@ public class EventHandler {
     GamePanel gp;
     //Rectangle eventRect;
     EventRect eventRect [][];
-    //int eventRectDefaultX;
-    //int eventRectDefaultY;
+    int previousEventX;
+    int previousEventY;
+    boolean canTouchEvent = true;
 
     public EventHandler(GamePanel gp) {
         this.gp = gp;
@@ -38,6 +39,16 @@ public class EventHandler {
     }
 
     public void checkEvent(){
+
+        // Check if te player is more than 1 tile away from the last event:
+
+        int xDistance = Math.abs(gp.player.worldX - previousEventX);
+        int yDistance = Math.abs(gp.player.worldY - previousEventY);
+        int distance = Math.max(xDistance, yDistance);
+
+        if(distance > gp.tileSize){
+            canTouchEvent = true;
+        }
 
         if(hit(27,17, "right") == true){
             System.out.println("Pit damage!");
@@ -69,6 +80,7 @@ public class EventHandler {
         gp.gameState = gameState;
         gp.ui.currentDialogue = "You fall into a pit!";
         gp.player.life -= 1;
+        eventRect[col][row].eventDone = true;
     }
 
     private void healingPool(int col, int row, int gameState) {
@@ -91,9 +103,12 @@ public class EventHandler {
         eventRect[col][row].x = col * gp.tileSize + eventRect[col][row].x;
         eventRect[col][row].y = row * gp.tileSize + eventRect[col][row].y;
 
-        if(gp.player.solidArea.intersects(eventRect[col][row])){
+        if(gp.player.solidArea.intersects(eventRect[col][row]) && eventRect[col][row].eventDone == false){
             if(gp.player.direction.contentEquals(reqDirection) || reqDirection.contentEquals("any")){
                 hit = true;
+
+                previousEventX = gp.player.worldX;
+                previousEventY = gp.player.worldY;
             }
         }
 
