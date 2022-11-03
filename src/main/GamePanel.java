@@ -49,6 +49,8 @@ public class GamePanel extends JPanel implements Runnable{
     Sound soundEffect = new Sound();
     // UI
     public UI ui = new UI(this);
+    //EventHandler
+    public EventHandler eHandler = new EventHandler(this);
 
     // game state
     public int gameState;
