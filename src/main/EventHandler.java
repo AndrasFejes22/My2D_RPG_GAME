@@ -45,25 +45,29 @@ public class EventHandler {
         int xDistance = Math.abs(gp.player.worldX - previousEventX);
         int yDistance = Math.abs(gp.player.worldY - previousEventY);
         int distance = Math.max(xDistance, yDistance);
-
         if(distance > gp.tileSize){
             canTouchEvent = true;
         }
 
-        if(hit(27,17, "right") == true){
-            System.out.println("Pit damage!");
-            damagePit(27, 17, gp.dialogueState);
+        if (canTouchEvent){
+            if(hit(27,17, "right") == true){
+                System.out.println("Pit damage!");
+                damagePit(27, 17, gp.dialogueState);
+            }
+
+            if(hit(23,12, "up") == true){
+                System.out.println("Healing!");
+                healingPool(23, 12, gp.dialogueState);
+            }
+
+            if(hit(26,20, "right") == true){
+                System.out.println("Teleport!");
+                teleport(26, 20, gp.dialogueState);
+            }
         }
 
-        if(hit(23,12, "up") == true){
-            System.out.println("Healing!");
-            healingPool(23, 12, gp.dialogueState);
-        }
 
-        if(hit(26,20, "right") == true){
-            System.out.println("Teleport!");
-            teleport(26, 20, gp.dialogueState);
-        }
+
 
     }
 
@@ -80,7 +84,8 @@ public class EventHandler {
         gp.gameState = gameState;
         gp.ui.currentDialogue = "You fall into a pit!";
         gp.player.life -= 1;
-        eventRect[col][row].eventDone = true;
+        //eventRect[col][row].eventDone = true;
+        canTouchEvent = false;
     }
 
     private void healingPool(int col, int row, int gameState) {
