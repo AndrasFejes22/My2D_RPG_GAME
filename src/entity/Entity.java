@@ -31,6 +31,7 @@ public class Entity {
     public boolean collision;
     public boolean invincible = false;
     public int invincibleCounter = 0;
+    public int type; // pl.: 0: player, 1: npc, 2.: monster
 
     public String direction = "down";
     public int spriteCounter = 0;
@@ -103,7 +104,15 @@ public class Entity {
         gp.cChecker.checkObject(this, false);
         gp.cChecker.checkEntity(this, gp.npc);
         gp.cChecker.checkEntity(this, gp.monster);
-        gp.cChecker.checkPlayer(this);
+        boolean contactPlayer =  gp.cChecker.checkPlayer(this);
+
+        //get damage from monster:
+
+        if(this.type == 2 && contactPlayer){
+            if(!gp.player.invincible){
+                // player can get damage
+            }
+        }
 
         //if collision is false, Entity can move
         if(collisionOn == false){
