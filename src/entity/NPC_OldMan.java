@@ -13,8 +13,17 @@ public class NPC_OldMan extends Entity{
     public NPC_OldMan(GamePanel gp) {
         super(gp);
 
-        direction = "down";
+        //direction = "down";
         speed = 1;
+
+        //ezt én tettem bele: Entity felülírása:
+        solidArea.x = 0;
+        solidArea.y = 16;
+        solidArea.width = 48;
+        solidArea.height = 32;
+        solidAreaDefaultX = solidArea.x;
+        solidAreaDefaultY = solidArea.y;
+        //idaig én tettem bele
 
         getImage();
 
