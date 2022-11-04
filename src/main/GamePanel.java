@@ -7,6 +7,8 @@ import tile.TileManager;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 
 public class GamePanel extends JPanel implements Runnable{
 
@@ -172,8 +174,43 @@ public class GamePanel extends JPanel implements Runnable{
             //TILE
             tileM.draw(g2);
 
-            //OBJECT
+            //Entities
+            //player
+            entityList.add(player);
 
+            // npc
+            for (int i = 0; i < npc.length; i++) {
+                if(npc[i] != null){
+                    entityList.add(npc[i]);
+                }
+            }
+
+            //objects:
+            for (int i = 0; i < obj.length; i++) {
+                if(obj[i] != null){
+                    entityList.add(obj[i]);
+                }
+            }
+
+            // sorting
+
+            Collections.sort(entityList, new Comparator<>() {
+                @Override
+                public int compare(Entity entity1, Entity entity2) {
+                    return Integer.compare(entity1.worldY, entity2.worldY);
+                }
+            });
+
+            // draw entities
+
+            for (int i = 0; i < entityList.size(); i++) {
+                entityList.get(i).draw(g2);
+            }
+
+            //reset the list:
+            for (int i = 0; i < entityList.size(); i++) {
+                entityList.remove(i);
+            }
 
 
             //UI:
