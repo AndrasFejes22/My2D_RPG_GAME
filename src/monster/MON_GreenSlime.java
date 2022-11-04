@@ -39,7 +39,7 @@ public class MON_GreenSlime extends Entity {
         right2 = setup("/monster/greenslime_down2");
     }
 
-    public void setAction(){ // kind of AI :)
+    public void setAction(){ // kind of AI :) //movement in circle
 
         actionLockCounter++;
 
