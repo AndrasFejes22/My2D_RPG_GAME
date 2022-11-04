@@ -24,7 +24,13 @@ public class Entity {
     public BufferedImage right1;
     public BufferedImage right2;
 
-    public String direction;
+    public BufferedImage image;
+    public BufferedImage image2;
+    public BufferedImage image3;
+    public String name;
+    public boolean collision;
+
+    public String direction = "down";
     public int spriteCounter = 0;
     public int spriteNum = 1;
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
