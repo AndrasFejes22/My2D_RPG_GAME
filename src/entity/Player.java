@@ -95,7 +95,7 @@ public class Player extends Entity{
 
             //check monster collision:
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
-            interactNPC(monsterIndex);
+            contactMonster(monsterIndex);
 
             // check event collision
             gp.eHandler.checkEvent();
@@ -129,6 +129,25 @@ public class Player extends Entity{
                 }
                 spriteCounter = 0;
             }
+        }
+
+        if(invincible){
+            invincibleCounter++;
+            if(invincibleCounter > 60){
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
+
+    }
+
+    private void contactMonster(int monsterIndex) {
+        if(monsterIndex != 999){
+            if(!invincible){
+                life = life - 1;
+                invincible = true;
+            }
+
         }
     }
 
@@ -189,6 +208,12 @@ public class Player extends Entity{
         }
         //g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
         g2.drawImage(image, screenX, screenY, null);
+
+        // debug invincible:
+        g2.setFont(new Font("Arial", Font.PLAIN, 26));
+        g2.setColor(Color.WHITE);
+        g2.drawString("Invincible = " + invincibleCounter, 10, 400);
+
 
     }
 

@@ -78,15 +78,15 @@ public class KeyHandler implements KeyListener {
                 if(code == KeyEvent.VK_ENTER){
                     if(gp.ui.commandNum == 0){ //fighter
                         gp.gameState = gp.playState;
-                        gp.playMusic(0);
+                        //gp.playMusic(0);
                     }
                     if(gp.ui.commandNum == 1){ //thief
                         gp.gameState = gp.playState;
-                        gp.playMusic(0);
+                        //gp.playMusic(0);
                     }
                     if(gp.ui.commandNum == 2){ //sorcerer
                         gp.gameState = gp.playState;
-                        gp.playMusic(0);
+                        //gp.playMusic(0);
                     }
                     if(gp.ui.commandNum == 3){ //back
                         gp.ui.titleScreenState = 0;
@@ -140,7 +140,7 @@ public class KeyHandler implements KeyListener {
                 }
                 else if(gp.gameState == gp.pauseState){
                     gp.gameState = gp.playState;
-                    gp.playMusic(0);
+                    //gp.playMusic(0);
                 }
             }
 

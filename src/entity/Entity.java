@@ -29,6 +29,8 @@ public class Entity {
     public BufferedImage image3;
     public String name;
     public boolean collision;
+    public boolean invincible = false;
+    public int invincibleCounter = 0;
 
     public String direction = "down";
     public int spriteCounter = 0;
