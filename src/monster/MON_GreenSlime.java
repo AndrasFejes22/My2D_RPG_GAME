@@ -29,14 +29,14 @@ public class MON_GreenSlime extends Entity {
     }
 
     public void getImage(){
-        up1 = setup("/monster/greenslime_down1");
-        up2 = setup("/monster/greenslime_down2");
-        down1 = setup("/monster/greenslime_down1");
-        down2 = setup("/monster/greenslime_down2");
-        left1 = setup("/monster/greenslime_down1");
-        left2 = setup("/monster/greenslime_down2");
-        right1 = setup("/monster/greenslime_down1");
-        right2 = setup("/monster/greenslime_down2");
+        up1 = setup("/monster/greenslime_down_1");
+        up2 = setup("/monster/greenslime_down_2");
+        down1 = setup("/monster/greenslime_down_1");
+        down2 = setup("/monster/greenslime_down_2");
+        left1 = setup("/monster/greenslime_down_1");
+        left2 = setup("/monster/greenslime_down_2");
+        right1 = setup("/monster/greenslime_down_1");
+        right2 = setup("/monster/greenslime_down_2");
     }
 
     public void setAction(){ // kind of AI :) //movement in circle
