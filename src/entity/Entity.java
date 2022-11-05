@@ -9,7 +9,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Entity {
-    GamePanel gp;
+    protected GamePanel gp;
 
     //state
     public int worldX, worldY;
