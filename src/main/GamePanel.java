@@ -223,11 +223,15 @@ public class GamePanel extends JPanel implements Runnable{
                 entityList.get(i).draw(g2);
             }
 
-            //reset the list:
+            //reset the list: így TILOS törölni*
+            /*
             for (int i = 0; i < entityList.size(); i++) {
                 entityList.remove(i);
             }
+            */
 
+            //*ha az egészet kell törölni:
+            entityList.clear(); //ha nem az ekészet kell törölni akkor meg listIterator()!
 
             //UI:
             ui.draw(g2);
