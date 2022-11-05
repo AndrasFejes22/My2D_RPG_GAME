@@ -223,10 +223,17 @@ public class Player extends Entity{
 
     private void damageMonster(int monsterIndex) {
         if(monsterIndex != 999){
-            System.out.println("Hit!");
-        } else {
-            System.out.println("Miss!");
+            if(!gp.monster[monsterIndex].invincible){
+                gp.monster[monsterIndex].life -= 1;
+                gp.monster[monsterIndex].invincible = true;
+
+                if(gp.monster[monsterIndex].life < 0){
+                    // monster dies:
+                    gp.monster[monsterIndex] = null;
+                }
+            }
         }
+
     }
 
 
