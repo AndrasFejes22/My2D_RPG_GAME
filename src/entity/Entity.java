@@ -18,6 +18,7 @@ public class Entity {
     public int spriteNum = 1;
     public String direction = "down";
     int dialogueIndex = 0;
+    boolean attacking = false;
 
     // boy walking:
     public BufferedImage up1;
