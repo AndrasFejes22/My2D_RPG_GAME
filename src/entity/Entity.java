@@ -9,12 +9,17 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 public class Entity {
-
-    public int worldX, worldY;
-    public int speed;
-
     GamePanel gp;
 
+    //state
+    public int worldX, worldY;
+    public boolean collision;
+    public boolean invincible = false;
+    public int spriteNum = 1;
+    public String direction = "down";
+    int dialogueIndex = 0;
+
+    // boy walking:
     public BufferedImage up1;
     public BufferedImage up2;
     public BufferedImage down1;
@@ -24,30 +29,43 @@ public class Entity {
     public BufferedImage right1;
     public BufferedImage right2;
 
+    //boy attacking:
+    public BufferedImage attackUp1;
+    public BufferedImage attackUp2;
+    public BufferedImage attackDown1;
+    public BufferedImage attackDown2;
+    public BufferedImage attackLeft1;
+    public BufferedImage attackLeft2;
+    public BufferedImage attackRight1;
+    public BufferedImage attackRight2;
+
     public BufferedImage image;
     public BufferedImage image2;
     public BufferedImage image3;
-    public String name;
-    public boolean collision;
-    public boolean invincible = false;
-    public int invincibleCounter = 0;
-    public int type; // pl.: 0: player, 1: npc, 2.: monster
 
-    public String direction = "down";
+    //counters
+    public int actionLockCounter = 0;
+    public int invincibleCounter = 0;
     public int spriteCounter = 0;
-    public int spriteNum = 1;
+
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     //public Rectangle solidArea = new Rectangle(0, 16, 48, 32);
     public int solidAreaDefaultX;
     public int solidAreaDefaultY;
     public boolean collisionOn = false;
-    public int actionLockCounter = 0;
+
     String [] dialogues = new String[20];
-    int dialogueIndex = 0;
+
 
     // Character status:
+    public String name;
     public int maxLife;
     public int life;
+    public int type; // pl.: 0: player, 1: npc, 2.: monster
+    public int speed;
+
+
+
 
     public Entity(GamePanel gp) {
         this.gp = gp;
