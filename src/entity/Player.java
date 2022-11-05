@@ -62,6 +62,18 @@ public class Player extends Entity{
         right2 = setup("/player/boy_right_2");
     }
 
+    public void getPlayerAttackImage(){
+
+        attackUp1 = setup("/player/boy_attack_up_1");
+        attackUp2 = setup("/player/boy_attack_up_2");
+        attackDown1 = setup("/player/boy_attack_down_1");
+        attackDown2 = setup("/player/boy_attack_down_2");
+        attackLeft1 = setup("/player/boy_attack_left_1");
+        attackLeft2 = setup("/player/boy_attack_left_2");
+        attackRight1 = setup("/player/boy_attack_right_1");
+        attackRight2 = setup("/player/boy_attack_right_2");
+    }
+
 
 
     public void update(){
