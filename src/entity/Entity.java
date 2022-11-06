@@ -133,6 +133,7 @@ public class Entity {
         if(this.type == 2 && contactPlayer){
             if(!gp.player.invincible){
                 // player can get damage:
+                gp.playSoundEffect(6);
                 gp.player.life -= 1;
                 gp.player.invincible = true;
             }
@@ -222,6 +223,22 @@ public class Entity {
                     }
                     break;
             }
+
+            // Monster HP bar:
+            if(type == 2){ //2: monster
+
+                double oneScale = (double)gp.tileSize/maxLife;
+                double hpBarValue = oneScale*life;
+
+
+
+                g2.setColor(Color.BLACK);
+                g2.fillRect(screenX-1, screenY-16, gp.tileSize, 12);
+                g2.setColor(new Color(255, 0, 30));
+                g2.fillRect(screenX, screenY-15, (int) hpBarValue, 10);
+            }
+
+
 
             if(invincible){
                 // set monster opacity
