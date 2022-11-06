@@ -242,30 +242,41 @@ public class Entity {
 
         dyingCounter++;
 
+        int i = 5;
+
         if(dyingCounter <= 5){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+            changeAlpha(g2, 0f);
         }
-        if(dyingCounter > 5 && dyingCounter <= 10){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        if(dyingCounter > i && dyingCounter <= i*2){
+            changeAlpha(g2, 1f);
         }
-        if(dyingCounter > 10 && dyingCounter <= 15){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        if(dyingCounter > i*2 && dyingCounter <= i*3){
+            changeAlpha(g2, 0f);
         }
-        if(dyingCounter > 15 && dyingCounter <= 20){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        if(dyingCounter > i*3 && dyingCounter <= i*4){
+            changeAlpha(g2, 1f);
         }
-        if(dyingCounter > 20 && dyingCounter <= 25){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        if(dyingCounter > i*4 && dyingCounter <= i*5){
+            changeAlpha(g2, 0f);
         }
-        if(dyingCounter > 25 && dyingCounter <= 30){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        if(dyingCounter > i*5 && dyingCounter <= i*6){
+            changeAlpha(g2, 1f);
         }
-        if(dyingCounter > 30 && dyingCounter <= 35){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        if(dyingCounter > i*6 && dyingCounter <= i*7){
+            changeAlpha(g2, 0f);
         }
-        if(dyingCounter > 35 && dyingCounter <= 40){
-            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        if(dyingCounter > i*7 && dyingCounter <= i*8){
+            changeAlpha(g2, 1f);
         }
+        if(dyingCounter > i*8){
+            dying = false;
+            alive = false;
+        }
+
+    }
+
+    public void changeAlpha(Graphics2D g2, float alphaValue){
+        g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaValue));
 
     }
 }
