@@ -21,6 +21,7 @@ public class Entity {
     public boolean attacking = false;
     public boolean dying = false;
     public boolean alive = true;
+    public boolean hpBarOn = false;
 
     // boy walking:
     public BufferedImage up1;
@@ -51,6 +52,7 @@ public class Entity {
     public int invincibleCounter = 0;
     public int spriteCounter = 0;
     public int dyingCounter = 0;
+    public int hpBarCounter = 0;
 
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public Rectangle attackArea = new Rectangle(0, 0, 0, 0);
@@ -225,22 +227,28 @@ public class Entity {
             }
 
             // Monster HP bar:
-            if(type == 2){ //2: monster
+            if(type == 2 && hpBarOn){ //2: monster
 
                 double oneScale = (double)gp.tileSize/maxLife;
                 double hpBarValue = oneScale*life;
-
-
 
                 g2.setColor(Color.BLACK);
                 g2.fillRect(screenX-1, screenY-16, gp.tileSize, 12);
                 g2.setColor(new Color(255, 0, 30));
                 g2.fillRect(screenX, screenY-15, (int) hpBarValue, 10);
+                hpBarCounter++;
+
+                if(hpBarCounter > 600){ //ten seconds
+                    hpBarCounter = 0;
+                    hpBarOn = false;
+                }
             }
 
 
 
             if(invincible){
+                hpBarOn = true;
+                hpBarCounter = 0;
                 // set monster opacity
                 g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
             }

@@ -184,7 +184,7 @@ public class Player extends Entity{
                 case "up": worldY -= attackArea.height; break;
                 case "down": worldY += attackArea.height; break;
                 case "left": worldX -= attackArea.width; break;
-                case "right": worldY += attackArea.width; break;
+                case "right": worldX += attackArea.width; break;
             }
 
             // attackArea becomes solidArea
