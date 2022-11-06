@@ -18,9 +18,9 @@ public class Entity {
     public int spriteNum = 1;
     public String direction = "down";
     int dialogueIndex = 0;
-    boolean attacking = false;
-    boolean dying = false;
-    boolean alive = true;
+    public boolean attacking = false;
+    public boolean dying = false;
+    public boolean alive = true;
 
     // boy walking:
     public BufferedImage up1;
