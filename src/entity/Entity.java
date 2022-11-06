@@ -227,10 +227,45 @@ public class Entity {
                 // set monster opacity
                 g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.4f));
             }
+            //dying: (monster)
+            if(dying){
+                dyingAnimation(g2);
+            }
 
             g2.drawImage(image, screenX, screenY, gp.tileSize, gp.tileSize, null);
 
             g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
         }
+    }
+
+    private void dyingAnimation(Graphics2D g2) {
+
+        dyingCounter++;
+
+        if(dyingCounter <= 5){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        }
+        if(dyingCounter > 5 && dyingCounter <= 10){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        }
+        if(dyingCounter > 10 && dyingCounter <= 15){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        }
+        if(dyingCounter > 15 && dyingCounter <= 20){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        }
+        if(dyingCounter > 20 && dyingCounter <= 25){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        }
+        if(dyingCounter > 25 && dyingCounter <= 30){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        }
+        if(dyingCounter > 30 && dyingCounter <= 35){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0f));
+        }
+        if(dyingCounter > 35 && dyingCounter <= 40){
+            g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 1f));
+        }
+
     }
 }
