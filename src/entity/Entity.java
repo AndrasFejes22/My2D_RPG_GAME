@@ -93,7 +93,11 @@ public class Entity {
     }
 
     public void setAction(){
+        //override in an another class
+    }
 
+    public void damageReaction(){
+        //override in an another class
     }
 
     public void speak(){
