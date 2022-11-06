@@ -19,6 +19,8 @@ public class Entity {
     public String direction = "down";
     int dialogueIndex = 0;
     boolean attacking = false;
+    boolean dying = false;
+    boolean alive = true;
 
     // boy walking:
     public BufferedImage up1;
@@ -48,6 +50,7 @@ public class Entity {
     public int actionLockCounter = 0;
     public int invincibleCounter = 0;
     public int spriteCounter = 0;
+    public int dyingCounter = 0;
 
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public Rectangle attackArea = new Rectangle(0, 0, 0, 0);

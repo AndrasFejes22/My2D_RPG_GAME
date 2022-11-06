@@ -229,7 +229,7 @@ public class Player extends Entity{
 
                 if(gp.monster[monsterIndex].life < 0){
                     // monster dies:
-                    gp.monster[monsterIndex] = null;
+                    gp.monster[monsterIndex].dying = true;
                 }
             }
         }
