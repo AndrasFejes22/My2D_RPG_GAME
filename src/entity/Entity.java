@@ -80,6 +80,10 @@ public class Entity {
     public Entity currentWeapon;
     public Entity currentShield;
 
+    // Item attributes
+    public int attackValue;
+    public int defenseValue;
+
 
 
 
