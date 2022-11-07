@@ -334,7 +334,7 @@ public class UI {
     private void drawCharacterScreen() {
         //create a frame:
 
-        final int frameX = gp.tileSize * 2;
+        final int frameX = (int) (gp.tileSize);
         final int frameY = gp.tileSize;
 
         final int frameWidth= gp.tileSize * 5;
@@ -440,9 +440,9 @@ public class UI {
 
         // draw sword and shield images:
 
-        g2.drawImage(gp.player.currentWeapon.down1, tailX -gp.tileSize, textY-15, null);
+        g2.drawImage(gp.player.currentWeapon.down1, tailX -gp.tileSize + 8, textY-17, null);
         textY += gp.tileSize;
-        g2.drawImage(gp.player.currentShield.down1, tailX -gp.tileSize, textY-15, null);
+        g2.drawImage(gp.player.currentShield.down1, tailX -gp.tileSize + 8, textY-17, null);
 
 
     }
