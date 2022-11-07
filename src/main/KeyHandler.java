@@ -27,7 +27,7 @@ public class KeyHandler implements KeyListener {
     }
 
     @Override
-    public void keyPressed(KeyEvent e) {
+    public void keyPressed(KeyEvent e) { // lehet refaktoralni: How to Make a 2D Game in Java #25, 33:34-nél
 
         int code = e.getKeyCode();
 
@@ -95,8 +95,6 @@ public class KeyHandler implements KeyListener {
                 }
             }
 
-
-
         }
 
 
@@ -118,11 +116,20 @@ public class KeyHandler implements KeyListener {
                 rightPressed = true;
             }
 
+            if(code == KeyEvent.VK_P){
+                gp.gameState = gp.pauseState;
+            }
+
+            if(code == KeyEvent.VK_C){
+                gp.gameState = gp.characterState;
+            }
+
             if(code == KeyEvent.VK_ENTER){
                 enterPressed = true;
             }
 
-            //time-debug
+
+            //time-debug. KELL kirajzolás megmérése!
             if(code == KeyEvent.VK_T){
                 if(!checkDrawTime){
                     checkDrawTime = true;
@@ -131,18 +138,6 @@ public class KeyHandler implements KeyListener {
                 }
             }
 
-            //pause
-
-            if(code == KeyEvent.VK_P){
-                if(gp.gameState == gp.playState){
-                    gp.gameState =gp.pauseState;
-                    gp.stopMusic();
-                }
-                else if(gp.gameState == gp.pauseState){
-                    gp.gameState = gp.playState;
-                    //gp.playMusic(0);
-                }
-            }
 
         }
 
@@ -150,23 +145,27 @@ public class KeyHandler implements KeyListener {
         else if(gp.gameState == gp.pauseState){
             if(code == KeyEvent.VK_P){
                 gp.gameState = gp.playState;
-                gp.playMusic(0);
+                //gp.stopMusic();
             }
         }
+        //dialog:
         else if (gp.gameState == gp.dialogueState){
             if(code == KeyEvent.VK_ENTER){
                 gp.gameState = gp.playState;
+
+            }
+        }
+        // character state:
+        else if (gp.gameState == gp.characterState){ //visszaváltás játékra
+            if(code == KeyEvent.VK_C){
+                gp.gameState = gp.playState;
+
             }
         }
 
 
 
-        /*
-        if(code == KeyEvent.VK_O){
-            Sound sound = new Sound();
-            sound.stop();
-        }
-        */
+
 
     }
 

@@ -104,7 +104,10 @@ public class UI {
             drawDialogueScreen();
 
         }
-
+        //character state
+        if(gp.gameState == gp.characterState){
+            drawCharacterScreen();
+        }
 
 
         //old, printed the owned keys, boots, etc.
@@ -175,6 +178,8 @@ public class UI {
 
 
     }
+
+
 
     private void drawPlayerLife() {
         int x = gp.tileSize/2;
@@ -323,6 +328,20 @@ public class UI {
             g2.drawString(line, x, y);
             y += 40;
         }
+
+    }
+
+    private void drawCharacterScreen() {
+        //create a frame:
+
+        final int frameX = gp.tileSize * 2;
+        final int frameY = gp.tileSize;
+
+        final int frameWidth= gp.tileSize * 5;
+        final int frameHeight= gp.tileSize * 10;
+
+        // draw a window
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
 
 
     }
