@@ -16,6 +16,8 @@ public class Player extends Entity{
     //player character screen position
     public final int screenX;
     public final int screenY;
+    int standCounter = 0;
+    public boolean attackCanceled = false;
     //public int hasKey = 0;
     //public int hasBoots = 0;
 
@@ -122,7 +124,7 @@ public class Player extends Entity{
             // check event collision
             gp.eHandler.checkEvent();
 
-            gp.keyH.enterPressed = false;
+            //gp.keyH.enterPressed = false;
 
             //if collision is false, player can move
             if(!collisionOn && !keyH.enterPressed){
@@ -142,6 +144,14 @@ public class Player extends Entity{
                 }
             }
 
+            if(gp.keyH.enterPressed && !attackCanceled){
+                gp.playSoundEffect(7);
+                attacking = true;
+                spriteCounter = 0;
+
+            }
+
+            attackCanceled = false;
             gp.keyH.enterPressed = false;
 
             spriteCounter++;
@@ -153,6 +163,12 @@ public class Player extends Entity{
                 }
                 spriteCounter = 0;
             }
+        } else {
+             standCounter++;
+             if(standCounter == 20){
+                 spriteNum = 1;
+                 standCounter = 0;
+             }
         }
 
         if(invincible){
@@ -241,17 +257,14 @@ public class Player extends Entity{
 
 
     private void interactNPC(int npcIndex) {
-        if(npcIndex != 999){
-            if(gp.keyH.enterPressed == true){
+        if(gp.keyH.enterPressed){
+
+            if(npcIndex != 999){
+                attackCanceled = true;
                 gp.gameState = gp.dialogueState;
                 gp.npc[0].speak();
             }
 
-        } else {
-            if(gp.keyH.enterPressed){
-                gp.playSoundEffect(7);
-                attacking = true;
-            }
         }
 
     }
