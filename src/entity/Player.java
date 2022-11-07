@@ -3,6 +3,8 @@ package entity;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
+import object.OBJ_Shield_Wood;
+import object.OBJ_Sword_Normal;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -55,6 +57,25 @@ public class Player extends Entity{
         //player status:
         maxLife = 6;
         life = maxLife;
+        level = 1;
+        strength = 1;
+        dexterity = 1;
+        exp = 0;
+        nextLevelExp = 5;//how much exp yo need to level up
+        coin = 0;
+        currentWeapon = new OBJ_Sword_Normal(gp);
+        currentShield = new OBJ_Shield_Wood(gp);
+        attack = getAttack();
+        defense = getDefense();
+
+    }
+
+    private int getDefense() {
+        return defense = dexterity * currentShield.defenseValue;
+    }
+
+    private int getAttack() {
+        return attack = strength * currentWeapon.attackValue;
     }
 
     public void getPlayerImage(){

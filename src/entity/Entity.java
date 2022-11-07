@@ -74,7 +74,7 @@ public class Entity {
     public int dexterity;
     public int attack;
     public int defense;
-    public int exo;
+    public int exp;
     public int nextLevelExp;
     public int coin;
     public Entity currentWeapon;
