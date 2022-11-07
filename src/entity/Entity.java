@@ -69,6 +69,16 @@ public class Entity {
     public int life;
     public int type; // pl.: 0: player, 1: npc, 2.: monster
     public int speed;
+    public int level;
+    public int strength;
+    public int dexterity;
+    public int attack;
+    public int defense;
+    public int exo;
+    public int nextLevelExp;
+    public int coin;
+    public Entity currentWeapon;
+    public Entity currentShield;
 
 
 
