@@ -17,7 +17,7 @@ public class Sound {
         soundUrl[4] = getClass().getResource("/sound/fanfare.wav");
         soundUrl[5] = getClass().getResource("/sound/hitmonster.wav");
         soundUrl[6] = getClass().getResource("/sound/receivedamage.wav");
-        soundUrl[7] = getClass().getResource("/sound/mixkit-metal-hit-woosh-1485.wav");
+        soundUrl[7] = getClass().getResource("/sound/swing.wav");
     }
 
     public void setFile(int i){
