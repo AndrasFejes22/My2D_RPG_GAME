@@ -221,7 +221,7 @@ public class UI {
             //title:
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 52F));
             String text = "Blue Boy Adventure";
-            int x = getForCenteredTex(text);
+            int x = getForCenteredText(text);
             int y = gp.tileSize * 3;
 
             //shadow:
@@ -240,7 +240,7 @@ public class UI {
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 32F));
 
             text = "NEW GAME";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize * 3.5;
             g2.drawString(text, x, y);
             if(commandNum == 0){
@@ -248,7 +248,7 @@ public class UI {
             }
 
             text = "LOAD GAME";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
             if(commandNum == 1){
@@ -256,7 +256,7 @@ public class UI {
             }
 
             text = "QUIT";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
             if(commandNum == 2){
@@ -267,12 +267,12 @@ public class UI {
             g2.setColor(Color.WHITE);
             g2.setFont(g2.getFont().deriveFont(22F));
             String text = "Select your class!";
-            int x = getForCenteredTex(text);
+            int x = getForCenteredText(text);
             int y = gp.tileSize * 3;
             g2.drawString(text, x, y);
 
             text = "Fighter";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize * 3;
             g2.drawString(text, x, y);
             if(commandNum == 0){
@@ -280,7 +280,7 @@ public class UI {
             }
 
             text = "Thief";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
             if(commandNum == 1){
@@ -288,7 +288,7 @@ public class UI {
             }
 
             text = "Sorcerer";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize;
             g2.drawString(text, x, y);
             if(commandNum == 2){
@@ -296,7 +296,7 @@ public class UI {
             }
 
             text = "Back";
-            x = getForCenteredTex(text);
+            x = getForCenteredText(text);
             y += gp.tileSize * 2;
             g2.drawString(text, x, y);
             if(commandNum == 3){
@@ -343,6 +343,107 @@ public class UI {
         // draw a window
         drawSubWindow(frameX, frameY, frameWidth, frameHeight);
 
+        // text
+        g2.setColor(Color.WHITE);
+        //g2.setFont(g2.getFont().deriveFont(20F));
+        g2.setFont(gabriola);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 30F));
+
+        int textX = frameX +20;
+        int textY = frameY + gp.tileSize;
+        final int lineHeight = 32;
+
+        //fields:
+        g2.drawString("Level", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Life", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Strength", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Dexterity", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Attack", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Defense", textX, textY);
+        textY += lineHeight;
+        g2.drawString("XP", textX, textY); //Exp
+        textY += lineHeight;
+        g2.drawString("Next Level", textX, textY);
+        textY += lineHeight;
+        g2.drawString("Coins", textX, textY);
+        textY += lineHeight + 20;
+        g2.drawString("Weapon", textX, textY);
+        textY += lineHeight + 15;
+        g2.drawString("Shield", textX, textY);
+        textY += lineHeight;
+
+        // Values:
+
+        int tailX = (frameX + frameWidth) - 30;
+        // Reset textY:
+        textY = frameY + gp.tileSize;
+        String value;
+
+        value = String.valueOf(gp.player.level);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.life + "/" + gp.player.maxLife);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.strength);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.dexterity);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.attack);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.defense);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.exp);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.nextLevelExp);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        value = String.valueOf(gp.player.coin);
+        textX = getXForAlignToRightText(value, tailX);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 40F));
+        g2.drawString(value, textX, textY);
+        textY += lineHeight;
+
+        // draw sword and shield images:
+
+        g2.drawImage(gp.player.currentWeapon.down1, tailX -gp.tileSize, textY-15, null);
+        textY += gp.tileSize;
+        g2.drawImage(gp.player.currentShield.down1, tailX -gp.tileSize, textY-15, null);
+
 
     }
 
@@ -364,16 +465,23 @@ public class UI {
 
         g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 50F));
         String text = "Game paused";
-        int x = getForCenteredTex(text);
+        int x = getForCenteredText(text);
         int y = gp.screenHeight/2 - (gp.tileSize * 3);
         //int y = gp.screenHeight/2;
         g2.drawString(text, x, y);
     }
 
-    public int getForCenteredTex(String text){
+    public int getForCenteredText(String text){
         int textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
         int x  = gp.screenWidth/2 - textLength/2;
         return x;
     }
+
+    public int getXForAlignToRightText(String text, int tailX){
+        int textLength = (int)g2.getFontMetrics().getStringBounds(text, g2).getWidth();
+        int x  = tailX - textLength;
+        return x;
+    }
+
 
 }
