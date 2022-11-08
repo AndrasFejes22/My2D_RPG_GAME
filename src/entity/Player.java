@@ -78,6 +78,7 @@ public class Player extends Entity{
         inventory.add(currentWeapon);
         inventory.add(currentShield);
         inventory.add(new OBJ_Key(gp));
+        /*
         inventory.add(new OBJ_Key(gp));
         inventory.add(new OBJ_Key(gp));
         inventory.add(new OBJ_Key(gp));
@@ -96,6 +97,7 @@ public class Player extends Entity{
         inventory.add(new OBJ_Chest(gp));
         inventory.add(new OBJ_Chest(gp));
         inventory.add(new OBJ_Chest(gp));
+        */
     }
 
     private int getDefense() {
