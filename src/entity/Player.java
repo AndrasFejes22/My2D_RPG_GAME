@@ -252,7 +252,11 @@ public class Player extends Entity{
         if(monsterIndex != 999){
             if(!invincible){
                 gp.playSoundEffect(6);
-                life = life - 1;
+                int damage = gp.monster[monsterIndex].attack - defense;
+                if(damage < 0){
+                    damage = 1;
+                }
+                life = life - damage;
                 invincible = true;
             }
 
@@ -263,7 +267,12 @@ public class Player extends Entity{
         if(monsterIndex != 999){
             if(!gp.monster[monsterIndex].invincible){
                 gp.playSoundEffect(5);
-                gp.monster[monsterIndex].life -= 1;
+
+                int damage = attack - gp.monster[monsterIndex].defense;
+                if(damage < 0){
+                    damage = 1;
+                }
+                gp.monster[monsterIndex].life -= damage;
                 gp.monster[monsterIndex].invincible = true;
                 gp.monster[monsterIndex].damageReaction();
 
