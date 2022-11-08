@@ -95,6 +95,7 @@ public class UI {
         //play state
         if(gp.gameState == gp.playState){
             drawPlayerLife();
+            drawMassage();
         }
         //pause state
         if(gp.gameState == gp.pauseState){
@@ -184,6 +185,7 @@ public class UI {
 
 
 
+
     private void drawPlayerLife() {
         int x = gp.tileSize/2;
         int y = gp.tileSize/2;
@@ -212,6 +214,31 @@ public class UI {
             x += gp.tileSize;
         }
 
+    }
+
+    private void drawMassage() {
+        int messageX = gp.tileSize;
+        int messageY = gp.tileSize*6;
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 18F));
+
+        for(int i = 0; i < message.size(); i++){
+            if(message.get(i) != null){
+                //shadow:
+                g2.setColor(Color.BLACK);
+                g2.drawString(message.get(i), messageX+2, messageY+2);
+                g2.setColor(Color.WHITE);
+                g2.drawString(message.get(i), messageX, messageY);
+
+                int counter = messageCounter.get(i) + 1;
+                messageCounter.set(i, counter);
+                messageY += 50;
+
+                if(messageCounter.get(i) > 180){
+                    message.remove(i);
+                    messageCounter.remove(i);
+                }
+            }
+        }
     }
 
     private void drawTitleScreen() {

@@ -19,6 +19,7 @@ public class MON_GreenSlime extends Entity{
         type = 2;
         attack = 5;
         defense = 0;
+        exp = 2; // How much XP you can get when you kill a monster
 
         //solidArea:
 
