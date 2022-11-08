@@ -280,11 +280,28 @@ public class Player extends Entity{
                 if(gp.monster[monsterIndex].life <= 0){
                     // monster dies:
                     gp.monster[monsterIndex].dying = true;
-                    gp.ui.addMessage("killed the " + gp.monster[monsterIndex].name+ " !");
+                    gp.ui.addMessage("Killed the " + gp.monster[monsterIndex].name+ " !");
+                    gp.ui.addMessage("+ " + gp.monster[monsterIndex].exp + "XP");
+                    exp += gp.monster[monsterIndex].exp;
+                    checkLevelUp();
                 }
             }
         }
 
+    }
+
+    private void checkLevelUp() {
+        if(exp >= nextLevelExp){
+            level++;
+            nextLevelExp = nextLevelExp * 2;
+            maxLife += 2; // 2 = 1 heart!
+            strength ++;
+            dexterity ++;
+            // recalculate:
+            attack = getAttack();
+            defense = getDefense();
+
+        }
     }
 
 
