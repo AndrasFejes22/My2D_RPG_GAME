@@ -43,6 +43,10 @@ public class UI {
     double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
 
+    //slot:
+    public int slotCol = 0;
+    public int slotRow = 0;
+
 
 
     public UI(GamePanel gp) {
@@ -111,6 +115,7 @@ public class UI {
         //character state
         if(gp.gameState == gp.characterState){
             drawCharacterScreen();
+            drawInventory();
         }
 
 
@@ -474,6 +479,33 @@ public class UI {
         textY += gp.tileSize;
         g2.drawImage(gp.player.currentShield.down1, tailX -gp.tileSize + 8, textY-17, null);
 
+    }
+
+    private void drawInventory() {
+
+        // frame:
+        int frameX = gp.tileSize * 9;
+        int frameY = gp.tileSize;
+        int frameWidth= gp.tileSize * 6;
+        int frameHeight= gp.tileSize * 5;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        // slot:
+        final int slotXStart = frameX + 20;
+        final int slotYStart = frameY + 20;
+        int slotX = slotXStart;
+        int slotY = slotYStart;
+
+        // cursor:
+        int cursorX = slotXStart + (gp.tileSize * slotCol);
+        int cursorY = slotYStart + (gp.tileSize * slotRow);
+        int cursorWidth= gp.tileSize;
+        int cursorHeight= gp.tileSize;
+
+        // draw cursor:
+        g2.setColor(Color.WHITE);
+        g2.setStroke(new BasicStroke(3));
+        g2.drawRoundRect(cursorX, cursorY, cursorWidth, cursorHeight, 10, 10);
 
     }
 
