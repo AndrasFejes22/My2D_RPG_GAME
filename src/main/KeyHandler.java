@@ -159,7 +159,19 @@ public class KeyHandler implements KeyListener {
         else if (gp.gameState == gp.characterState){ //visszaváltás játékra
             if(code == KeyEvent.VK_C){
                 gp.gameState = gp.playState;
-
+            }
+            // WASD navigating in inventory screen
+            if(code == KeyEvent.VK_W){
+                gp.ui.slotRow--;
+            }
+            if(code == KeyEvent.VK_A){
+                gp.ui.slotCol--;
+            }
+            if(code == KeyEvent.VK_S){
+                gp.ui.slotRow++;
+            }
+            if(code == KeyEvent.VK_D){
+                gp.ui.slotCol++;
             }
         }
 
