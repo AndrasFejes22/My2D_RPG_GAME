@@ -96,6 +96,8 @@ public class EventHandler {
             gp.playSoundEffect(2);
             gp.ui.currentDialogue = "You have drank water. \nYour life has been recovered!";
             gp.player.life = gp.player.maxLife;
+            // when you rest recall monsters:
+            gp.aSetter.setMonster();;
         }
 
     }
