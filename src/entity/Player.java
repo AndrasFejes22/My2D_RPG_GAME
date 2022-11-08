@@ -42,8 +42,8 @@ public class Player extends Entity{
         solidArea.height = 32;
 
         //attack:
-        attackArea.width = 36;
-        attackArea.height = 36;
+        //attackArea.width = 36;
+        //attackArea.height = 36;
 
         setDefaultValues();
         getPlayerImage();
@@ -105,6 +105,7 @@ public class Player extends Entity{
     }
 
     private int getAttack() {
+        attackArea = currentWeapon.attackArea;
         return attack = strength * currentWeapon.attackValue;
     }
 
@@ -311,7 +312,7 @@ public class Player extends Entity{
                     // monster dies:
                     gp.monster[monsterIndex].dying = true;
                     gp.ui.addMessage("Killed the " + gp.monster[monsterIndex].name+ " !");
-                    gp.ui.addMessage("+ " + gp.monster[monsterIndex].exp + "XP");
+                    gp.ui.addMessage("+ " + gp.monster[monsterIndex].exp + " XP");
                     exp += gp.monster[monsterIndex].exp;
                     checkLevelUp();
                 }
@@ -355,9 +356,22 @@ public class Player extends Entity{
     }
 
     public void pickUpObject(int index){
+        String text = "bla";
+
         if(index != 999){
+            
+            if(inventory.size() != maxInventorySize){
+                inventory.add(gp.obj[index]);
+                gp.playSoundEffect(1);
+                text = "Got a " + gp.obj[index].name + "!";
+            } else {
+                text = "Your inventory is full!";
+            }
+            gp.ui.addMessage(text);
+            gp.obj[index] = null;
 
         }
+
     }
 
     public void draw(Graphics2D g2){
