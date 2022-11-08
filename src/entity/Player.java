@@ -300,6 +300,12 @@ public class Player extends Entity{
             // recalculate:
             attack = getAttack();
             defense = getDefense();
+            //sound:
+            gp.playSoundEffect(8);
+            //textWindow:
+            gp.gameState = gp.dialogueState;
+            gp.ui.currentDialogue = "LEVEL UP!\n" + "Your level is: " + level + "\n"
+                    + "You feel stronger!";
 
         }
     }
