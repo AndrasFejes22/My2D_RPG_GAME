@@ -3,9 +3,7 @@ package entity;
 import main.GamePanel;
 import main.KeyHandler;
 import main.UtilityTool;
-import object.OBJ_Key;
-import object.OBJ_Shield_Wood;
-import object.OBJ_Sword_Normal;
+import object.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
@@ -23,7 +21,7 @@ public class Player extends Entity{
     int standCounter = 0;
     public boolean attackCanceled = false;
     public ArrayList<Entity> inventory = new ArrayList<>();
-    public final int inventorySize = 20;
+    public final int maxInventorySize = 20;
     //public int hasKey = 0;
     //public int hasBoots = 0;
 
@@ -76,10 +74,28 @@ public class Player extends Entity{
     }
 
     public void setItems(){
+        // add items, de túllépheti a maxSize-ot!
         inventory.add(currentWeapon);
         inventory.add(currentShield);
         inventory.add(new OBJ_Key(gp));
         inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Key(gp));
+        inventory.add(new OBJ_Heart(gp));
+        inventory.add(new OBJ_Heart(gp));
+
+        inventory.add(new OBJ_Heart(gp));
+        inventory.add(new OBJ_Boots(gp));
+        inventory.add(new OBJ_Boots(gp));
+        inventory.add(new OBJ_Boots(gp));
+        inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Chest(gp));
+        inventory.add(new OBJ_Chest(gp));
     }
 
     private int getDefense() {
