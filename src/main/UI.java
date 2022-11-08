@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
 import java.text.DecimalFormat;
+import java.util.ArrayList;
 
 public class UI {
 
@@ -31,11 +32,13 @@ public class UI {
     //BufferedImage keyImage;
     public boolean messageOn = false;
     public boolean gameFinished = false;
-    public String message = "";
+    //public String message = "";
     public String currentDialogue = "";
-    public int messageCounter = 0;
+    //public int messageCounter = 0;
     public int commandNum = 0;
     public int titleScreenState = 0; // 0: the first screen, 1: second screen
+    ArrayList<String> message = new ArrayList<>();
+    ArrayList<Integer> messageCounter = new ArrayList<>();
 
     double playTime;
     DecimalFormat dFormat = new DecimalFormat("#0.00");
@@ -70,9 +73,9 @@ public class UI {
 
     }
 
-    public void showMessage(String text){
-        message = text;
-        messageOn = true;
+    public void addMessage(String text){
+        message.add(text);
+        messageCounter.add(0);
     }
 
     public void draw(Graphics2D g2){
