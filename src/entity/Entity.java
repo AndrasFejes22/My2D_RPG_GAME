@@ -67,7 +67,7 @@ public class Entity {
     public String name;
     public int maxLife;
     public int life;
-    public int type; // pl.: 0: player, 1: npc, 2.: monster
+
     public int speed;
     public int level;
     public int strength;
@@ -84,6 +84,16 @@ public class Entity {
     public int attackValue;
     public int defenseValue;
     public String description = "";
+
+    //Type
+    public int type; // pl.: 0: player, 1: npc, 2.: monster
+    public final int type_player = 0;
+    public final int type_npc = 1;
+    public final int type_monster = 2;
+    public final int type_sword = 3;
+    public final int type_axe = 4;
+    public final int type_shield = 5;
+    public final int type_consumable = 6;
 
 
 
@@ -151,7 +161,7 @@ public class Entity {
 
         //get damage from monster:
 
-        if(this.type == 2 && contactPlayer){
+        if(this.type == type_monster && contactPlayer){
             if(!gp.player.invincible){
                 // player can get damage:
                 gp.playSoundEffect(6);
