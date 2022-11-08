@@ -18,5 +18,7 @@ public class OBJ_Axe extends Entity {
         attackArea.height = 30;
 
         description = "[" + name + "] \nA bit rusty but still can cut\n some trees.";
+
+        type = type_axe;
     }
 }
