@@ -2,6 +2,7 @@ package monster;
 
 import entity.Entity;
 import main.GamePanel;
+import object.OBJ_Rock;
 
 import java.util.Random;
 
@@ -20,6 +21,7 @@ public class MON_GreenSlime extends Entity{
         attack = 5;
         defense = 0;
         exp = 2; // How much XP you can get when you kill a monster
+        projectile = new OBJ_Rock(gp);
 
         //solidArea:
 
@@ -67,6 +69,13 @@ public class MON_GreenSlime extends Entity{
             }
 
             actionLockCounter = 0;
+        }
+
+        int i = new Random().nextInt(100) + 1;
+        if(i > 99 && !projectile.alive && shotAvailableCounter == 30){
+            projectile.set(worldX, worldY, direction , true, this);
+            gp.projectileList.add(projectile);
+            shotAvailableCounter = 0;
         }
 
     }
