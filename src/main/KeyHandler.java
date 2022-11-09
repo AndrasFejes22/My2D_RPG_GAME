@@ -12,6 +12,7 @@ public class KeyHandler implements KeyListener {
     public boolean leftPressed;
     public boolean rightPressed;
     public boolean enterPressed;
+    public boolean shotKeyPressed;
 
     public KeyHandler(GamePanel gp) {
         this.gp = gp;
@@ -127,6 +128,10 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_ENTER){
                 enterPressed = true;
             }
+            //projectile:
+            if(code == KeyEvent.VK_F){
+                shotKeyPressed = true;
+            }
 
 
             //time-debug. KELL kirajzolás megmérése!
@@ -213,6 +218,11 @@ public class KeyHandler implements KeyListener {
 
         if(code == KeyEvent.VK_D){
             rightPressed = false;
+        }
+
+        //projectile:
+        if(code == KeyEvent.VK_F){
+            shotKeyPressed = false;
         }
     }
 }
