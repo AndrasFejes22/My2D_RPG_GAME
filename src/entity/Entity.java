@@ -67,6 +67,8 @@ public class Entity {
     public String name;
     public int maxLife;
     public int life;
+    public int maxMana;
+    public int mana;
 
     public int speed;
     public int level;
@@ -79,10 +81,12 @@ public class Entity {
     public int coin;
     public Entity currentWeapon;
     public Entity currentShield;
+    public Projectile projectile;
 
     // Item attributes
     public int attackValue;
     public int defenseValue;
+    public int useCost;
     public String description = "";
 
     //Type
