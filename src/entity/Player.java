@@ -351,7 +351,7 @@ public class Player extends Entity{
                 attack = getAttack();
             }
             if(selectedItem.type == type_shield){
-                currentWeapon = selectedItem;
+                currentShield = selectedItem;
                 attack = getDefense();
             }
             if(selectedItem.type == type_consumable){

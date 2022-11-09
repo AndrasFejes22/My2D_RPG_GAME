@@ -185,6 +185,9 @@ public class KeyHandler implements KeyListener {
                     gp.playSoundEffect(9);
                 }
             }
+            if(code == KeyEvent.VK_ENTER){
+                gp.player.selectItem();
+            }
         }
 
 
