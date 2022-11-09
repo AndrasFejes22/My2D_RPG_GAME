@@ -242,6 +242,8 @@ public class Player extends Entity{
             projectile.set(worldX, worldY, direction, true, this);
             // add to the list
             gp.projectileList.add(projectile);
+            //soundEffect:
+            gp.playSoundEffect(10);
         }
 
         if(invincible){
@@ -315,7 +317,7 @@ public class Player extends Entity{
         }
     }
 
-    private void damageMonster(int monsterIndex) {
+    void damageMonster(int monsterIndex) {
         if(monsterIndex != 999){
             if(!gp.monster[monsterIndex].invincible){
                 gp.playSoundEffect(5);

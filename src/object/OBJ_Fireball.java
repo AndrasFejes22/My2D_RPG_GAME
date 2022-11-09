@@ -13,8 +13,8 @@ public class OBJ_Fireball extends Projectile {
         super(gp);
 
         name = "Fireball";
-        speed = 5;
-        maxLife = 80;
+        speed = 5; // RPG-szerűen változtatható, pl ha valamely tárgy vagy képesség boostolja
+        maxLife = 80; // RPG-szerűen változtatható, pl ha valamely tárgy vagy képesség boostolja, hogy mennyi idő után tűnik el
         life = maxLife;
         attack = 2;
         useCost = 1; //use 1 mana to cast spell

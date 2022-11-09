@@ -23,6 +23,20 @@ public class Projectile extends Entity{
     }
 
     public void update(){
+
+        // collisionCheck:
+        if(user == gp.player){
+            int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
+            if(monsterIndex != 999){
+                gp.player.damageMonster(monsterIndex);
+                alive = false;
+            }
+        }
+        if(user != gp.player){
+
+        }
+
+
         switch (direction){
             case "up":
                 worldY = worldY - speed;
