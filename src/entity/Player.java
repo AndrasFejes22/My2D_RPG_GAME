@@ -249,7 +249,7 @@ public class Player extends Entity{
 
         // timer
         if(shotAvailableCounter < 30){ //metódus helye? (videóban a if(invincible){} alatt van...)
-            shotAvailableCounter = 0;
+            shotAvailableCounter ++;
         }
 
         if(invincible){

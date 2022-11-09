@@ -209,6 +209,9 @@ public class Entity {
                 invincibleCounter = 0;
             }
         }
+        if(shotAvailableCounter < 30){ //metódus helye?
+            shotAvailableCounter ++;
+        }
 
     }
 
