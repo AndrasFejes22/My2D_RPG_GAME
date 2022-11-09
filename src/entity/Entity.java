@@ -53,6 +53,7 @@ public class Entity {
     public int spriteCounter = 0;
     public int dyingCounter = 0;
     public int hpBarCounter = 0;
+    public int shotAvailableCounter = 0;
 
     public Rectangle solidArea = new Rectangle(0, 0, 48, 48);
     public Rectangle attackArea = new Rectangle(0, 0, 0, 0);

@@ -237,13 +237,19 @@ public class Player extends Entity{
         }
 
         // Shot:
-        if (keyH.shotKeyPressed && !projectile.alive) { //alive when a fireball flies
+        if (keyH.shotKeyPressed && !projectile.alive && shotAvailableCounter == 30) { //alive when a fireball flies
             //set coordinates, direction, and user
             projectile.set(worldX, worldY, direction, true, this);
             // add to the list
             gp.projectileList.add(projectile);
+            shotAvailableCounter = 0;
             //soundEffect:
             gp.playSoundEffect(10);
+        }
+
+        // timer
+        if(shotAvailableCounter < 30){ //metódus helye? (videóban a if(invincible){} alatt van...)
+            shotAvailableCounter = 0;
         }
 
         if(invincible){
