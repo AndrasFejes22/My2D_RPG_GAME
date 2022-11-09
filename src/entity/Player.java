@@ -68,6 +68,7 @@ public class Player extends Entity{
         coin = 0;
         currentWeapon = new OBJ_Sword_Normal(gp);
         currentShield = new OBJ_Shield_Wood(gp);
+        projectile = new OBJ_Fireball(gp);
         attack = getAttack();
         defense = getDefense();
 
@@ -233,6 +234,11 @@ public class Player extends Entity{
                  spriteNum = 1;
                  standCounter = 0;
              }
+        }
+
+        // Shot:
+        if (keyH.shotKeyPressed && !projectile.alive) { //alive when a fireball flies
+            projectile.set(worldX, worldY, direction, true, this);
         }
 
         if(invincible){

@@ -42,17 +42,24 @@ public class GamePanel extends JPanel implements Runnable{
     public Entity[] npc = new Entity[10];
     public Entity[] monster = new Entity[20];
     ArrayList<Entity> entityList = new ArrayList<>();
+    ArrayList<Entity> projectileList = new ArrayList<>();
+
     //tiles
     TileManager tileM = new TileManager(this);
+
     //collision
     public CollisionChecker cChecker = new CollisionChecker(this);
+
     //assets
     public AssetSetter aSetter = new AssetSetter(this);
+
     //sound:
     Sound music = new Sound();
     Sound soundEffect = new Sound();
+
     // UI
     public UI ui = new UI(this);
+
     //EventHandler
     public EventHandler eHandler = new EventHandler(this);
 
