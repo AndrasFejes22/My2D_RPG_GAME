@@ -171,17 +171,7 @@ public class Entity {
         //get damage from monster:
 
         if(this.type == type_monster && contactPlayer){
-            if(!gp.player.invincible){
-                // player can get damage:
-                gp.playSoundEffect(6);
-
-                int damage = attack - gp.player.defense;
-                if(damage < 0){
-                    damage = 1;
-                }
-                gp.player.life =- damage;
-                gp.player.invincible = true;
-            }
+            damagePlayer(attack);
         }
 
         //if collision is false, Entity can move
@@ -220,6 +210,20 @@ public class Entity {
             }
         }
 
+    }
+
+    public void damagePlayer(int attack){
+        if(!gp.player.invincible){
+            // player can get damage:
+            gp.playSoundEffect(6);
+
+            int damage = attack - gp.player.defense;
+            if(damage < 0){
+                damage = 1;
+            }
+            gp.player.life =- damage;
+            gp.player.invincible = true;
+        }
     }
 
     public void draw(Graphics2D g2) {
