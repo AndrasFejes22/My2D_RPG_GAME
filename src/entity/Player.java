@@ -285,7 +285,7 @@ public class Player extends Entity{
             //check monster collision wit the updated x, y, area:
 
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
-            damageMonster(monsterIndex);
+            damageMonster(monsterIndex, attack); //melee damage
             //reset:
             worldX = currentWorldX;
             worldY = currentWorldY;
@@ -317,7 +317,7 @@ public class Player extends Entity{
         }
     }
 
-    void damageMonster(int monsterIndex) {
+    void damageMonster(int monsterIndex, int attack) {
         if(monsterIndex != 999){
             if(!gp.monster[monsterIndex].invincible){
                 gp.playSoundEffect(5);
