@@ -23,6 +23,35 @@ public class Projectile extends Entity{
     }
 
     public void update(){
+        switch (direction){
+            case "up":
+                worldY = worldY - speed;
+                break;
+            case "down":
+                worldY = worldY + speed;
+                break;
+            case "left":
+                worldX = worldX - speed;
+                break;
+            case "right":
+                worldX = worldX + speed;
+                break;
+        }
 
+        life--;
+        if(life <= 0){
+            alive = false;
+        }
+
+
+        spriteCounter++;
+        if (spriteCounter > 12) { // moving speed (sprite)
+            if (spriteNum == 1) {
+                spriteNum = 2;
+            } else if (spriteNum == 2) {
+                spriteNum = 1;
+            }
+            spriteCounter = 0;
+        }
     }
 }
