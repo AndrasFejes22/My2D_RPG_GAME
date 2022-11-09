@@ -251,7 +251,9 @@ public class GamePanel extends JPanel implements Runnable{
             long drawEnd = System.nanoTime();
             long passed = drawEnd - drawStart;
             g2.setColor(Color.WHITE);
-            g2.drawString("Draw time: " + passed, 10, 400);
+            //g2.drawString("Draw time: " + passed, 10, 400);
+            g2.drawString("Y: "+String.valueOf(player.worldY/maxWorldRow), 10, 400);
+            g2.drawString("X: "+String.valueOf(player.worldX/maxWorldCol), 10, 450);
             System.out.println("Draw time: " + passed);
         }
 
