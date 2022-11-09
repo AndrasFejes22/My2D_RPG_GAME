@@ -368,7 +368,8 @@ public class Player extends Entity{
                 attack = getDefense();
             }
             if(selectedItem.type == type_consumable){
-                // later
+                selectedItem.useRedPotion(this);
+                inventory.remove(itemIndex);
             }
         }
     }

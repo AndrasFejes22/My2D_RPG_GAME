@@ -125,6 +125,10 @@ public class Entity {
         //override in an another class
     }
 
+    public void useRedPotion (Entity entity){
+        //override in an another class
+    }
+
     public void speak(){
         if(dialogues[dialogueIndex] == null){
             dialogueIndex = 0;
