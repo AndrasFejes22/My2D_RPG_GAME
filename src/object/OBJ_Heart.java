@@ -7,7 +7,7 @@ import javax.imageio.ImageIO;
 import java.io.IOException;
 
 public class OBJ_Heart extends Entity {
-    GamePanel gp;
+    //GamePanel gp;
 
     public OBJ_Heart(GamePanel gp) {
 
