@@ -133,7 +133,7 @@ public class Entity {
         //override in an another class
     }
 
-    public void useRedPotion (Entity entity){
+    public void use (Entity entity){
         //override in an another class
     }
 

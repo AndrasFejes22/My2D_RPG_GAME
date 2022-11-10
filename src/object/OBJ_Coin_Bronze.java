@@ -17,8 +17,10 @@ public class OBJ_Coin_Bronze extends Entity {
         value = 1;
 
     }
-
-    public void useCoin (Entity entity){
-
+    @Override
+    public void use (Entity entity){ //VAGY lehet @Override method is mit public void use (Entity entity){}
+        gp.playSoundEffect(1);
+        gp.ui.addMessage("Coin +" + value);
+        gp.player.coin += value;
     }
 }

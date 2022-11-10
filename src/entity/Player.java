@@ -390,7 +390,7 @@ public class Player extends Entity{
                 attack = getDefense();
             }
             if(selectedItem.type == type_consumable){
-                selectedItem.useRedPotion(this);
+                selectedItem.use(this);
                 inventory.remove(itemIndex);
             }
         }
@@ -410,24 +410,35 @@ public class Player extends Entity{
 
     }
 
-    public void pickUpObject(int index){
-        String text = "bla";
+    public void pickUpObject(int index) {
+        if (index != 999) {
+            // pickup_only items:
+            if (gp.obj[index].type == type_pickupOnly) {
 
-        if(index != 999){
-            
-            if(inventory.size() != maxInventorySize){
-                inventory.add(gp.obj[index]);
-                gp.playSoundEffect(1);
-                text = "Got a " + gp.obj[index].name + "!";
+                gp.obj[index].use(this);
+                gp.obj[index] = null;
+
             } else {
-                text = "Your inventory is full!";
-            }
-            gp.ui.addMessage(text);
-            gp.obj[index] = null;
+                // inventory items:
+                String text = "";
 
+
+                if (inventory.size() != maxInventorySize) {
+                    inventory.add(gp.obj[index]);
+                    gp.playSoundEffect(1);
+                    text = "Got a " + gp.obj[index].name + "!";
+                } else {
+                    text = "Your inventory is full!";
+                }
+                gp.ui.addMessage(text);
+                gp.obj[index] = null;
+
+            }
         }
 
     }
+
+
 
     public void draw(Graphics2D g2){
 

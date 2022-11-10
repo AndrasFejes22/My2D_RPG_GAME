@@ -17,7 +17,7 @@ public class OBJ_Potion_Red extends Entity {
         type = type_consumable;
     }
 
-    public void useRedPotion (Entity entity){
+    public void use (Entity entity){
         gp.gameState = gp.dialogueState;
         gp.ui.currentDialogue = "You have drank the " + name + "!\n"
             + "Your life has been recovered by " + value + "!";
