@@ -94,9 +94,10 @@ public class EventHandler {
             gp.gameState = gameState;
             gp.player.attackCanceled = true;
             gp.playSoundEffect(2);
-            gp.ui.currentDialogue = "You have drank water. \nYour life has been recovered!";
+            gp.ui.currentDialogue = "You have drank water. \nYour life and mana have been recovered!";
             gp.player.life = gp.player.maxLife;
-            // when you rest recall monsters:
+            gp.player.mana = gp.player.maxMana;
+            // when you healed recall monsters:
             gp.aSetter.setMonster();;
         }
 
