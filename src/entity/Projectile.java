@@ -19,7 +19,15 @@ public class Projectile extends Entity{
         this.user = user;
         this.life = maxLife;
 
+    }
 
+    public boolean haveResource(Entity user){
+        boolean haveResource = false;
+        return haveResource;
+    }
+
+    public void subtractResource(Entity user){
+        System.out.println("Superclass");
     }
 
     public void update(){

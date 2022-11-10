@@ -245,7 +245,7 @@ public class UI {
         y = (int) (gp.tileSize*1.5);
         i = 0;
 
-        while (i < gp.player.maxMana){
+        while (i < gp.player.mana){
             g2.drawImage(crystal_full, x, y, null);
             i++;
             x += 35;

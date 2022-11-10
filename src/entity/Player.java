@@ -239,9 +239,11 @@ public class Player extends Entity{
         }
 
         // Shot:
-        if (keyH.shotKeyPressed && !projectile.alive && shotAvailableCounter == 30) { //alive when a fireball flies
+        if (keyH.shotKeyPressed && !projectile.alive && shotAvailableCounter == 30 && projectile.haveResource(this)) { //alive when a fireball flies
             //set coordinates, direction, and user
             projectile.set(worldX, worldY, direction, true, this);
+            // subtract the cost:
+            projectile.subtractResource(this);
             // add to the list
             gp.projectileList.add(projectile);
             shotAvailableCounter = 0;
