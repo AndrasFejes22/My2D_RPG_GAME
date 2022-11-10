@@ -2,6 +2,7 @@ package main;
 
 import entity.Entity;
 import object.OBJ_Heart;
+import object.OBJ_ManaCrystal;
 
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -19,6 +20,8 @@ public class UI {
     BufferedImage heart_full;
     BufferedImage heart_half;
     BufferedImage heart_blank;
+    BufferedImage crystal_full;
+    BufferedImage crystal_blank;
 
     //Fonts:
     Font arial_40;
@@ -69,10 +72,15 @@ public class UI {
         }
 
         //Create HUD object:
+        //heart
         Entity heart = new OBJ_Heart(gp);
         heart_full = heart.image;
         heart_half = heart.image2;
         heart_blank = heart.image3;
+        //mana
+        Entity crystal = new OBJ_ManaCrystal(gp);
+        crystal_full = crystal.image;
+        crystal_blank = crystal.image2;
 
 
     }
@@ -192,6 +200,8 @@ public class UI {
 
 
     private void drawPlayerLife() {
+
+        // DRAW MAX HEARTS
         int x = gp.tileSize/2;
         int y = gp.tileSize/2;
         int i = 0;
@@ -217,6 +227,28 @@ public class UI {
             }
             i++;
             x += gp.tileSize;
+        }
+
+        // DRAW MAX MANA
+        x = (gp.tileSize/2)-5;
+        y = (int) (gp.tileSize*1.5);
+        i = 0;
+
+        while (i < gp.player.maxMana){
+            g2.drawImage(crystal_blank, x, y, null);
+            i++;
+            x += 35;
+        }
+
+        // draw mana
+        x = (gp.tileSize/2)-5;
+        y = (int) (gp.tileSize*1.5);
+        i = 0;
+
+        while (i < gp.player.maxMana){
+            g2.drawImage(crystal_full, x, y, null);
+            i++;
+            x += 35;
         }
 
     }
