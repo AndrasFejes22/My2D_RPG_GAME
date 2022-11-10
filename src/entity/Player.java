@@ -257,6 +257,16 @@ public class Player extends Entity{
             shotAvailableCounter ++;
         }
 
+        if(life >maxLife){
+            life = maxLife;
+            gp.ui.addMessage("Your life is full!");
+        }
+        if(mana >maxMana){
+            mana = maxMana;
+            gp.ui.addMessage("Your mana is full!");
+        }
+
+
         if(invincible){
             invincibleCounter++;
             if(invincibleCounter > 60){
