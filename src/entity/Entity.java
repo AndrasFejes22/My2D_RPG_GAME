@@ -149,6 +149,7 @@ public class Entity {
                 gp.obj[i] = droppedItem;
                 gp.obj[i].worldX = worldX; // dead monster's coordinates
                 gp.obj[i].worldY = worldY;
+                break;
             }
         }
     }
