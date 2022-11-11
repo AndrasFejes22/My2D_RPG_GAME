@@ -12,6 +12,7 @@ public class IT_DryTree extends InteractiveTile{
 
         down1 = setup("/tiles_interactive/drytree", gp.tileSize, gp.tileSize);
         desctructible = true;
+        life = 3;
 
     }
 
@@ -23,5 +24,14 @@ public class IT_DryTree extends InteractiveTile{
         }
 
         return isCorrectItem;
+    }
+
+    public void playSE(){
+        gp.playSoundEffect(11);
+    }
+
+    public InteractiveTile getDestroyedForm(){
+        InteractiveTile tile = new IT_Trunk(gp, worldX/ gp.tileSize, worldY/gp.tileSize);
+        return tile;
     }
 }

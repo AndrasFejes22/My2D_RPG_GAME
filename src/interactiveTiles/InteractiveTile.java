@@ -11,8 +11,23 @@ public class InteractiveTile extends Entity {
         super(gp);
     }
 
-    public void update(){
+    public void playSE(){
 
+    }
+
+    public InteractiveTile getDestroyedForm(){
+        InteractiveTile tile = null;
+        return tile;
+    }
+
+    public void update(){
+        if(invincible){ //tree's invicibles
+            invincibleCounter++;
+            if(invincibleCounter > 20){
+                invincible = false;
+                invincibleCounter = 0;
+            }
+        }
     }
 
     public boolean isCorrectItem (Entity entity){

@@ -374,8 +374,14 @@ public class Player extends Entity{
     }
 
     private void damageInteractiveTile(int iTileIndex) {
-        if(iTileIndex != 999 && gp.iTile[iTileIndex].desctructible && gp.iTile[iTileIndex].isCorrectItem(this)){
-            gp.iTile[iTileIndex] = null;
+        if(iTileIndex != 999 && gp.iTile[iTileIndex].desctructible && gp.iTile[iTileIndex].isCorrectItem(this) && !gp.iTile[iTileIndex].invincible){
+            gp.iTile[iTileIndex].playSE(); // cuttree sound
+            gp.iTile[iTileIndex].life--; // (cuttable tree has 3 life!)
+            gp.iTile[iTileIndex].invincible = true;
+            if(gp.iTile[iTileIndex].life == 0){
+                gp.iTile[iTileIndex] = gp.iTile[iTileIndex].getDestroyedForm(); // it will be a trunk when destroyed
+            }
+
         }
     }
 
