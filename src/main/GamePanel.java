@@ -186,6 +186,19 @@ public class GamePanel extends JPanel implements Runnable{
 
                 }
             }
+            // particle:
+            for(int i = 0; i < particleList.size(); i++){
+                if(particleList.get(i) != null){
+                    if(particleList.get(i).alive){
+                        particleList.get(i).update();
+                    }
+                    if(!particleList.get(i).alive){
+                        particleList.remove(i);
+                    }
+
+                }
+            }
+
             // iTiles
             for(int i = 0; i < iTile.length; i++){
                 if(iTile[i] != null){
@@ -260,6 +273,14 @@ public class GamePanel extends JPanel implements Runnable{
                     entityList.add(projectileList.get(i));
                 }
             }
+
+            //particle:
+            for (int i = 0; i < particleList.size(); i++) {
+                if(particleList.get(i) != null){
+                    entityList.add(particleList.get(i));
+                }
+            }
+
 
             // sorting
 
