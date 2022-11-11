@@ -374,7 +374,7 @@ public class Player extends Entity{
     }
 
     private void damageInteractiveTile(int iTileIndex) {
-        if(iTileIndex != 999 && gp.iTile[iTileIndex].desctructible){
+        if(iTileIndex != 999 && gp.iTile[iTileIndex].desctructible && gp.iTile[iTileIndex].isCorrectItem(this)){
             gp.iTile[iTileIndex] = null;
         }
     }
