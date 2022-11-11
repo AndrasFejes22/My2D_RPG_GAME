@@ -189,10 +189,12 @@ public class Player extends Entity{
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             contactMonster(monsterIndex);
 
+            // check interactive tile collision:
+            int iTileIndex = gp.cChecker.checkEntity(this, gp.iTile);
+
             // check event collision
             gp.eHandler.checkEvent();
 
-            //gp.keyH.enterPressed = false;
 
             //if collision is false, player can move
             if(!collisionOn && !keyH.enterPressed){
@@ -307,6 +309,11 @@ public class Player extends Entity{
 
             int monsterIndex = gp.cChecker.checkEntity(this, gp.monster);
             damageMonster(monsterIndex, attack); //melee damage
+
+            // check iTile collision:
+            int iTileIndex = gp.cChecker.checkEntity(this, gp.iTile);
+            damageInteractiveTile(iTileIndex); 
+
             //reset:
             worldX = currentWorldX;
             worldY = currentWorldY;
@@ -320,6 +327,7 @@ public class Player extends Entity{
             attacking = false;
         }
     }
+
 
 
 
@@ -363,6 +371,12 @@ public class Player extends Entity{
             }
         }
 
+    }
+
+    private void damageInteractiveTile(int iTileIndex) {
+        if(iTileIndex != 999 && gp.iTile[iTileIndex].desctructible){
+            gp.iTile[iTileIndex] = null;
+        }
     }
 
     private void checkLevelUp() {
