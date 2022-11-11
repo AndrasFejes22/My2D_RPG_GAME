@@ -5,7 +5,13 @@ import main.GamePanel;
 
 public class InteractiveTile extends Entity {
 
-    public InteractiveTile(GamePanel gp) {
+    public boolean desctructible = false;
+
+    public InteractiveTile(GamePanel gp, int col, int row) {
         super(gp);
+    }
+
+    public void update(){
+
     }
 }
