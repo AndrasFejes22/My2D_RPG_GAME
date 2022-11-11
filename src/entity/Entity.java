@@ -143,6 +143,25 @@ public class Entity {
         //override in an another class
     }
 
+    public Color getParticleColor(){
+        Color color = null;
+        return color;
+    }
+
+    public int getParticleSize(){
+        return 0; // 6 pixels
+    }
+
+    public int getParticleSpeed(){
+        return 0;
+    }
+
+    public int getParticleMaxSize(){
+        return 0;
+    }
+
+    /////////////override methods end//////////////
+
     public void dropItem(Entity droppedItem){
         for (int i = 0; i < gp.obj.length; i++) {
             if(gp.obj[i] == null){//??
