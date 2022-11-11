@@ -125,6 +125,8 @@ public class Entity {
         return image;
     }
 
+    // methods to override
+
     public void setAction(){
         //override in an another class
     }
@@ -135,6 +137,20 @@ public class Entity {
 
     public void use (Entity entity){
         //override in an another class
+    }
+
+    public void checkDrop(){
+        //override in an another class
+    }
+
+    public void dropItem(Entity droppedItem){
+        for (int i = 0; i < gp.obj.length; i++) {
+            if(gp.obj[i] != null){
+                gp.obj[i] = droppedItem;
+                gp.obj[i].worldX = worldX; // dead monster's coordinates
+                gp.obj[i].worldY = worldY;
+            }
+        }
     }
 
     public void speak(){
