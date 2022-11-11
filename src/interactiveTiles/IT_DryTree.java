@@ -50,7 +50,7 @@ public class IT_DryTree extends InteractiveTile{
         return 1;
     }
 
-    public int getParticleMaxSize(){
+    public int getParticleMaxLife(){
         return 20;
     }
 

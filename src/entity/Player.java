@@ -378,6 +378,11 @@ public class Player extends Entity{
             gp.iTile[iTileIndex].playSE(); // cuttree sound
             gp.iTile[iTileIndex].life--; // (cuttable tree has 3 life!)
             gp.iTile[iTileIndex].invincible = true;
+
+            // create particles:
+
+            generateParticle(gp.iTile[iTileIndex], gp.iTile[iTileIndex]); //??
+
             if(gp.iTile[iTileIndex].life == 0){
                 gp.iTile[iTileIndex] = gp.iTile[iTileIndex].getDestroyedForm(); // it will be a trunk when destroyed
             }
