@@ -37,7 +37,7 @@ public class InteractiveTile extends Entity {
         return isCorrectItem;
     }
 
-    public void draw(Graphics2D g2) {
+    public void draw(Graphics2D g2) { // tree is not half transparent when it is cut
 
         int screenX = worldX - gp.player.worldX + gp.player.screenX;
         int screenY = worldY - gp.player.worldY + gp.player.screenY;
