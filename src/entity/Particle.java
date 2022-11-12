@@ -24,12 +24,17 @@ public class Particle extends Entity{
         this.yd = yd;
 
         life = maxLife;
-        worldX = generator.worldX;
-        worldY = generator.worldY;
+        int offset = (gp.tileSize/2) - (size/2);
+        worldX = generator.worldX + offset;
+        worldY = generator.worldY + offset;
     }
 
     public void update(){
         life--;
+        //kind of "gravity":
+        if(life < maxLife/3){
+            yd++;
+        }
         worldX += xd * speed;
         worldY += yd * speed;
         if(life == 0){

@@ -168,8 +168,14 @@ public class Entity {
         int speed = generator.getParticleSpeed();
         int maxLife = generator.getParticleMaxLife();
 
-        Particle p1 = new Particle(gp, generator, color, size, speed, maxLife, -1, -1);
+        Particle p1 = new Particle(gp, generator, color, size, speed, maxLife, -2, -1); //top, left, 2: increasing the horizontal vectors
+        Particle p2 = new Particle(gp, generator, color, size, speed, maxLife, 2, -1);
+        Particle p3 = new Particle(gp, generator, color, size, speed, maxLife, -2, 1);
+        Particle p4 = new Particle(gp, generator, color, size, speed, maxLife, 2, 1);
         gp.projectileList.add(p1);
+        gp.projectileList.add(p2);
+        gp.projectileList.add(p3);
+        gp.projectileList.add(p4);
     }
 
     public void dropItem(Entity droppedItem){
