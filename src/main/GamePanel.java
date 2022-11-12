@@ -104,6 +104,24 @@ public class GamePanel extends JPanel implements Runnable{
         tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
         g2 = (Graphics2D) tempScreen.getGraphics();
 
+        // call the method
+
+        setFullScreen();
+
+    }
+
+    // set full screen:
+
+    public void setFullScreen(){
+
+        // get local screen device:
+        GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
+        GraphicsDevice gd = ge.getDefaultScreenDevice();
+        gd.setFullScreenWindow(Main.window);
+
+        // get full screen width and height
+        screenWidth2 = Main.window.getWidth();
+        screenHeight2 = Main.window.getHeight();
 
     }
 
