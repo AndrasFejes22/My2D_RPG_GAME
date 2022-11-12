@@ -202,6 +202,15 @@ public class KeyHandler implements KeyListener {
                 gp.player.selectItem();
             }
         }
+        // game options:
+        else if (gp.gameState == gp.optionsState){
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = gp.playState;
+            }
+            if(code == KeyEvent.VK_ENTER){
+                enterPressed = true;
+            }
+        }
 
 
 
