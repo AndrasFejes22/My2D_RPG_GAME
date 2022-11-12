@@ -1,7 +1,9 @@
 package main;
 
+import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.image.BufferedImage;
 
 public class KeyHandler implements KeyListener {
 
@@ -63,6 +65,7 @@ public class KeyHandler implements KeyListener {
                 }
             }
             else if(gp.ui.titleScreenState == 1){ //sub title screen //else!
+
                 if(code == KeyEvent.VK_W){
                     gp.ui.commandNum--; //az ui-ban átállítja, hogy hova rajzoljon
                     if(gp.ui.commandNum < 0){
@@ -95,6 +98,7 @@ public class KeyHandler implements KeyListener {
 
                 }
             }
+
 
         }
 
@@ -131,6 +135,10 @@ public class KeyHandler implements KeyListener {
             //projectile:
             if(code == KeyEvent.VK_F){
                 shotKeyPressed = true;
+            }
+            //game options:
+            if(code == KeyEvent.VK_ESCAPE){
+                gp.gameState = gp.optionsState;
             }
 
 

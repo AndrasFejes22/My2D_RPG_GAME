@@ -285,6 +285,7 @@ public class UI {
             g2.setColor(Color.BLACK);
             // fill the whole screen:
             g2.fillRect(0,0, gp.screenWidth, gp.screenHeight);
+            //g2.fillRect(0,0, gp.screenWidth2, gp.screenHeight2);
             //title:
             g2.setFont(g2.getFont().deriveFont(Font.BOLD, 52F));
             String text = "Blue Boy Adventure";
