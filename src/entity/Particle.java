@@ -29,6 +29,12 @@ public class Particle extends Entity{
     }
 
     public void update(){
+        life--;
+        worldX += xd * speed;
+        worldY += yd * speed;
+        if(life == 0){
+            alive = false;
+        }
 
     }
 
