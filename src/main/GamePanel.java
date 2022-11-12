@@ -149,7 +149,9 @@ public class GamePanel extends JPanel implements Runnable{
 
             if(delta >= 1){
                 update();
-                repaint();
+                //repaint();
+                drawToTempScreen();
+                drawToScreen();
                 delta--;
                 drawCount ++;
             }
@@ -322,6 +324,13 @@ public class GamePanel extends JPanel implements Runnable{
             g2.drawString("X: "+String.valueOf(player.worldX/maxWorldCol), 10, 450);
             System.out.println("Draw time: " + passed);
         }
+    }
+
+    public void drawToScreen(){
+
+        Graphics g = getGraphics();
+        g.drawImage(tempScreen, 0, 0, screenWidth2, screenHeight2, null);
+        g.dispose();
     }
 
     /*
