@@ -62,7 +62,7 @@ public class KeyHandler implements KeyListener {
                     }
                 }
             }
-            else if(gp.ui.titleScreenState == 1){ //sub title screen
+            else if(gp.ui.titleScreenState == 1){ //sub title screen //else!
                 if(code == KeyEvent.VK_W){
                     gp.ui.commandNum--; //az ui-ban átállítja, hogy hova rajzoljon
                     if(gp.ui.commandNum < 0){

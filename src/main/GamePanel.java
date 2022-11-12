@@ -106,7 +106,7 @@ public class GamePanel extends JPanel implements Runnable{
 
         // call the method
 
-        setFullScreen();
+        //setFullScreen();
 
     }
 
