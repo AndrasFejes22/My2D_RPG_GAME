@@ -174,6 +174,28 @@ public class UI {
         textX = getForCenteredText(text);
         textY = frameY + gp.tileSize;
         g2.drawString(text, textX, textY);
+
+        //full screen on/off:
+        text = "Full screen";
+        textX = frameX + gp.tileSize;
+        textY += gp.tileSize*2;
+        g2.drawString(text, textX, textY);
+
+        // music :
+        textY += gp.tileSize;
+        g2.drawString("Music", textX, textY);
+
+        // Sound effect :
+        textY += gp.tileSize;
+        g2.drawString("Sound effect", textX, textY);
+
+        // Control :
+        textY += gp.tileSize;
+        g2.drawString("Control", textX, textY);
+
+        // End Game :
+        textY += gp.tileSize;
+        g2.drawString("End Game", textX, textY);
     }
 
 
