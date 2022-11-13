@@ -8,6 +8,9 @@ public class Sound {
 
     Clip clip;
     URL soundUrl[] = new URL[30];
+    FloatControl fc;
+    int volumeScale = 3;
+    float volume;
 
     public Sound (){
         soundUrl[0] = getClass().getResource("/sound/BlueBoyAdventure.wav");
@@ -30,6 +33,7 @@ public class Sound {
             AudioInputStream ais = AudioSystem.getAudioInputStream(soundUrl[i]);
             clip = AudioSystem.getClip();
             clip.open(ais);
+            fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {
@@ -49,5 +53,19 @@ public class Sound {
 
     public void stop(){
         clip.stop();
+    }
+
+    public void checkVolume(){
+
+        switch (volumeScale){
+            case 0: volume = -80f; break; // no sound
+            case 1: volume = -20f; break;
+            case 2: volume = -12f; break;
+            case 3: volume = -5f; break;
+            case 4: volume = 1f; break;
+            case 5: volume = 6f; break;
+        }
+        fc.setValue(volume);
+
     }
 }
