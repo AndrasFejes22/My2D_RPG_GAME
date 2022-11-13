@@ -13,6 +13,7 @@ public class Config {
     public void saveConfig(){
 
         try {
+            //You have to fill in the config file the first time! // e.g.: Full screen off/3/1 (in new lines!)
             BufferedWriter bw = new BufferedWriter(new FileWriter("config.txt"));
 
             // save Full screen settings:
