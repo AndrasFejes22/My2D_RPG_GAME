@@ -111,7 +111,7 @@ public class GamePanel extends JPanel implements Runnable{
         g2 = (Graphics2D) tempScreen.getGraphics();
 
         // call the method
-        // config:
+        // config.txt:
         if(fullScreenOn){
             setFullScreen();
         }
