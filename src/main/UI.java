@@ -161,9 +161,11 @@ public class UI {
         //substates:
         switch (subState){
             case 0: options_top (frameX, frameY); break;
-            case 1: break;
+            case 1: options_fullScreenNotification(frameX, frameY); break;
             case 2: break;
         }
+
+        gp.keyH.enterPressed = false;
     }
 
     public void options_top (int frameX, int frameY){
@@ -182,6 +184,14 @@ public class UI {
         g2.drawString(text, textX, textY);
         if(commandNum == 0){
             g2.drawString(">" , textX-25, textY);
+            if(gp.keyH.enterPressed){
+                if(!gp.fullScreenOn){
+                    gp.fullScreenOn = true;
+                } else if (gp.fullScreenOn){
+                    gp.fullScreenOn = false;
+                }
+                subState = 1;
+            }
         }
 
         // music :
@@ -224,17 +234,40 @@ public class UI {
         textY = frameY + gp.tileSize*2 + 24;
         g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
         g2.drawRect(textX, textY, 24, 24);
+        if(gp.fullScreenOn){
+            g2.fillRect(textX, textY, 24, 24);
+        }
 
         // Music volume slider:
         textY += gp.tileSize;
         //g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
         g2.drawRect(textX, textY, 120, 24);
 
-        // Sound effect slider:
+        // Sound effect volume slider:
         textY += gp.tileSize;
         //g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
         g2.drawRect(textX, textY, 120, 24);
 
+    }
+
+    public void options_fullScreenNotification(int frameX, int frameY){
+        int textX = frameX + gp.tileSize;
+        int textY = frameY + gp.tileSize*3;
+        currentDialogue = "The change will \neffect after restarting \nthe game!";
+        for(String line : currentDialogue.split("\n")){
+            g2.drawString(line, textX , textY);
+            textY += 40;
+        }
+
+        // back:
+        textY = frameY + gp.tileSize*9;
+        g2.drawString("Back", textX, textY);
+        if(commandNum == 0){
+            g2.drawString(">" , textX-25, textY);
+            if(gp.keyH.enterPressed){
+                subState = 0;
+            }
+        }
 
     }
 
