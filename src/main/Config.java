@@ -1,8 +1,6 @@
 package main;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
-import java.io.IOException;
+import java.io.*;
 
 public class Config {
 
@@ -42,6 +40,34 @@ public class Config {
     }
 
     public void loadConfig(){
+
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("config.txt"));
+
+                String s = br.readLine();
+                //Full screen:
+                if(s.equals("Full screen on")){
+                    gp.fullScreenOn = true;
+                }
+                if(s.equals("Full screen off")){
+                    gp.fullScreenOn = false;
+                }
+
+                // music:
+                s = br.readLine();
+                gp.music.volumeScale = Integer.parseInt(s);
+
+                // soundEffect:
+                s = br.readLine();
+                gp.soundEffect.volumeScale = Integer.parseInt(s);
+
+                br.close();
+
+
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 }
