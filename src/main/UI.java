@@ -274,6 +274,10 @@ public class UI {
         g2.drawString("Back", textX, textY);
         if(commandNum == 5){
             g2.drawString(">" , textX-25, textY);
+            if(gp.keyH.enterPressed){
+                gp.gameState = gp.playState;
+                commandNum = 0;
+            }
         }
 
         // Full screen check box:
@@ -302,6 +306,8 @@ public class UI {
     public void options_fullScreenNotification(int frameX, int frameY){
         int textX = frameX + gp.tileSize;
         int textY = frameY + gp.tileSize*3;
+        gp.setFullScreen();
+
         currentDialogue = "The change will \neffect after restarting \nthe game!";
         for(String line : currentDialogue.split("\n")){
             g2.drawString(line, textX , textY);
