@@ -219,6 +219,23 @@ public class UI {
             g2.drawString(">" , textX-25, textY);
         }
 
+        // Full screen check box:
+        textX = (int) (frameX + gp.tileSize*4.8);
+        textY = frameY + gp.tileSize*2 + 24;
+        g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
+        g2.drawRect(textX, textY, 24, 24);
+
+        // Music volume slider:
+        textY += gp.tileSize;
+        //g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
+        g2.drawRect(textX, textY, 120, 24);
+
+        // Sound effect slider:
+        textY += gp.tileSize;
+        //g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
+        g2.drawRect(textX, textY, 120, 24);
+
+
     }
 
 
