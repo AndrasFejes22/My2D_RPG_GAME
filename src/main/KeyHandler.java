@@ -229,6 +229,25 @@ public class KeyHandler implements KeyListener {
                     gp.ui.commandNum = 0;
                 }
             }
+            // volume
+            if(code == KeyEvent.VK_A){
+                if(gp.ui.subState == 0){
+                   if(gp.ui.commandNum == 1 && gp.music.volumeScale > 0){
+                       gp.music.volumeScale--;
+                       gp.music.checkVolume();
+                       gp.playSoundEffect(9);
+                   }
+                }
+            }
+            if(code == KeyEvent.VK_D){
+                if(gp.ui.subState == 0){
+                    if(gp.ui.commandNum == 1 && gp.music.volumeScale < 5){
+                        gp.music.volumeScale++;
+                        gp.music.checkVolume();
+                        gp.playSoundEffect(9);
+                    }
+                }
+            }
         }
 
 
