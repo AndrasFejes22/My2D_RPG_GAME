@@ -210,6 +210,25 @@ public class KeyHandler implements KeyListener {
             if(code == KeyEvent.VK_ENTER){
                 enterPressed = true;
             }
+            // W-S navigation in options menu:
+            int maxCommandNum = 0;
+            switch (gp.ui.subState){
+                case 0: maxCommandNum = 5;
+            }
+            if(code == KeyEvent.VK_W){
+                gp.ui.commandNum--;
+                gp.playSoundEffect(9);
+                if(gp.ui.commandNum < 0){
+                    gp.ui.commandNum = maxCommandNum;
+                }
+            }
+            if(code == KeyEvent.VK_S){
+                gp.ui.commandNum++;
+                gp.playSoundEffect(9);
+                if(gp.ui.commandNum > maxCommandNum){
+                    gp.ui.commandNum = 0;
+                }
+            }
         }
 
 
