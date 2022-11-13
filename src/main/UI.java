@@ -180,22 +180,45 @@ public class UI {
         textX = frameX + gp.tileSize;
         textY += gp.tileSize*2;
         g2.drawString(text, textX, textY);
+        if(commandNum == 0){
+            g2.drawString(">" , textX-25, textY);
+        }
 
         // music :
         textY += gp.tileSize;
         g2.drawString("Music", textX, textY);
+        if(commandNum == 1){
+            g2.drawString(">" , textX-25, textY);
+        }
 
         // Sound effect :
         textY += gp.tileSize;
         g2.drawString("Sound effect", textX, textY);
+        if(commandNum == 2){
+            g2.drawString(">" , textX-25, textY);
+        }
 
         // Control :
         textY += gp.tileSize;
         g2.drawString("Control", textX, textY);
+        if(commandNum == 3){
+            g2.drawString(">" , textX-25, textY);
+        }
 
         // End Game :
         textY += gp.tileSize;
         g2.drawString("End Game", textX, textY);
+        if(commandNum == 4){
+            g2.drawString(">" , textX-25, textY);
+        }
+
+        // Back :
+        textY += gp.tileSize*2;
+        g2.drawString("Back", textX, textY);
+        if(commandNum == 5){
+            g2.drawString(">" , textX-25, textY);
+        }
+
     }
 
 
