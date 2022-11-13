@@ -301,6 +301,9 @@ public class UI {
         volumeWidth = 24 * gp.soundEffect.volumeScale;
         g2.fillRect(textX, textY, volumeWidth, 24);
 
+        // SAVE CONFIG:
+        gp.config.saveConfig();
+
     }
 
     public void options_fullScreenNotification(int frameX, int frameY){

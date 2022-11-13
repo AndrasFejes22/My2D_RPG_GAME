@@ -70,6 +70,10 @@ public class GamePanel extends JPanel implements Runnable{
     // UI
     public UI ui = new UI(this);
 
+    // Config
+
+    Config config = new Config(this);
+
     //EventHandler
     public EventHandler eHandler = new EventHandler(this);
 
@@ -107,7 +111,10 @@ public class GamePanel extends JPanel implements Runnable{
         g2 = (Graphics2D) tempScreen.getGraphics();
 
         // call the method
-
+        // config:
+        if(fullScreenOn){
+            setFullScreen();
+        }
         //setFullScreen();
 
     }
