@@ -240,13 +240,15 @@ public class UI {
 
         // Music volume slider:
         textY += gp.tileSize;
-        //g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
-        g2.drawRect(textX, textY, 120, 24);
+        g2.drawRect(textX, textY, 120, 24); // 120/5 = 24
+        int volumeWidth = 24 * gp.music.volumeScale;
+        g2.fillRect(textX, textY, volumeWidth, 24);
 
         // Sound effect volume slider:
         textY += gp.tileSize;
-        //g2.setStroke(new BasicStroke(3)); // a jelölőnégyzet oldalainak vastagsága
         g2.drawRect(textX, textY, 120, 24);
+        volumeWidth = 24 * gp.soundEffect.volumeScale;
+        g2.fillRect(textX, textY, volumeWidth, 24);
 
     }
 

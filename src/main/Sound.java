@@ -34,6 +34,7 @@ public class Sound {
             clip = AudioSystem.getClip();
             clip.open(ais);
             fc = (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+            checkVolume();
         } catch (UnsupportedAudioFileException e) {
             e.printStackTrace();
         } catch (IOException e) {

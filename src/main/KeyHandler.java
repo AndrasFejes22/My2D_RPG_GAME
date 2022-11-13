@@ -53,8 +53,9 @@ public class KeyHandler implements KeyListener {
                 }
                 if(code == KeyEvent.VK_ENTER){
                     if(gp.ui.commandNum == 0){ //new game
-                        gp.ui.titleScreenState = 1;
-                        //gp.playMusic(0);
+                        gp.gameState = gp.playState; ////////////////// ITT VAN A VÁLTOZÁS, eredetileg itt a gp.ui.titleScreenState = 1; volt!!!!!!!!!!!!!!!!!!
+                        //gp.ui.titleScreenState = 1;
+                        gp.playMusic(0);
                     }
                     if(gp.ui.commandNum == 1){ //load game
                         // add later
@@ -229,7 +230,7 @@ public class KeyHandler implements KeyListener {
                     gp.ui.commandNum = 0;
                 }
             }
-            // volume
+            // MUSIC AND SOUNDEFFECT volume
             if(code == KeyEvent.VK_A){
                 if(gp.ui.subState == 0){
                    if(gp.ui.commandNum == 1 && gp.music.volumeScale > 0){
@@ -237,6 +238,12 @@ public class KeyHandler implements KeyListener {
                        gp.music.checkVolume();
                        gp.playSoundEffect(9);
                    }
+                   //se:
+                    if(gp.ui.commandNum == 2 && gp.soundEffect.volumeScale > 0){
+                        gp.soundEffect.volumeScale--;
+                        gp.playSoundEffect(9);
+                    }
+
                 }
             }
             if(code == KeyEvent.VK_D){
@@ -244,6 +251,11 @@ public class KeyHandler implements KeyListener {
                     if(gp.ui.commandNum == 1 && gp.music.volumeScale < 5){
                         gp.music.volumeScale++;
                         gp.music.checkVolume();
+                        gp.playSoundEffect(9);
+                    }
+                    //se:
+                    if(gp.ui.commandNum == 2 && gp.soundEffect.volumeScale < 5){
+                        gp.soundEffect.volumeScale++;
                         gp.playSoundEffect(9);
                     }
                 }
