@@ -1,3 +1,3 @@
-Full screen on
-2
+Full screen off
+1
 3

@@ -310,8 +310,12 @@ public class UI {
         int textX = frameX + gp.tileSize;
         int textY = frameY + gp.tileSize*3;
         gp.setFullScreen();
+        if(!gp.fullScreenOn){
+            currentDialogue = "The change will take\nafter restarting \nthe game!";
+        } else {
+            currentDialogue = "Full screen ON!";
+        }
 
-        currentDialogue = "The change will \neffect after restarting \nthe game!";
         for(String line : currentDialogue.split("\n")){
             g2.drawString(line, textX , textY);
             textY += 40;
