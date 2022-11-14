@@ -58,7 +58,7 @@ public class Player extends Entity{
         direction = "down";
 
         //player status:
-        maxLife = 6;
+        maxLife = 10;
         life = maxLife;
         maxMana = 4;
         mana = maxMana;
@@ -265,6 +265,8 @@ public class Player extends Entity{
         //game over:
         if(life <= 0){
             gp.gameState = gp.gameOverState;
+            gp.ui.commandNum = -1;
+            gp.stopMusic();
             gp.playSoundEffect(12);
         }
 

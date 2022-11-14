@@ -21,7 +21,7 @@ public class MON_GreenSlime extends Entity{
         maxLife = 4;
         life = maxLife;
         type = type_monster;
-        attack = 5;
+        attack = 2;
         defense = 0;
         exp = 2; // How much XP you can get when you kill a monster
         projectile = new OBJ_Rock(gp);

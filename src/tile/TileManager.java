@@ -21,7 +21,7 @@ public class TileManager {
         tile = new Tile[60];
         mapTileNum = new int [gp.maxWorldCol][gp.maxWorldRow];
         getTileImage();
-        loadMap("/maps/worldV2.txt");
+        loadMap("/maps/worldV3.txt");
     }
 
     public void getTileImage(){
@@ -75,7 +75,10 @@ public class TileManager {
             setup(38, "road12", false);
             setup(39, "earth", false);
             setup(40, "wall", true);
-            setup(41, "tree01", true);
+            setup(41, "tree", true);
+            setup(42, "hut", true);
+            setup(43, "floor01", true);
+            setup(44, "table01", true);
 
             /*
             tile[0] = new Tile();
