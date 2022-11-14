@@ -77,31 +77,26 @@ public class Player extends Entity{
 
     }
 
+    //reset player's stuff after selected "Retry" (after Game Over)
+    public void setDefaultPositions(){
+        worldX = gp.tileSize * 23;
+        worldY = gp.tileSize * 21;
+        direction = "down";
+    }
+
+    public void restoreLifeAndMana(){
+        life = maxLife;
+        mana = maxMana;
+        invincible = false;
+    }
+
     public void setItems(){
         // add items, de túllépheti a maxSize-ot!
+        inventory.clear(); // delete extra items
         inventory.add(currentWeapon);
         inventory.add(currentShield);
         inventory.add(new OBJ_Key(gp));
-        /*
-        inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Key(gp));
-        inventory.add(new OBJ_Heart(gp));
-        inventory.add(new OBJ_Heart(gp));
 
-        inventory.add(new OBJ_Heart(gp));
-        inventory.add(new OBJ_Boots(gp));
-        inventory.add(new OBJ_Boots(gp));
-        inventory.add(new OBJ_Boots(gp));
-        inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Chest(gp));
-        inventory.add(new OBJ_Chest(gp));
-        */
     }
 
     private int getDefense() {
