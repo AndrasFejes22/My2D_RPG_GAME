@@ -60,20 +60,20 @@ public class EventHandler {
                 damagePit(gp.dialogueState);
             }
 
-            if(hit(0, 23, 12, "up")){
+            else if(hit(0, 23, 12, "up")){
                 System.out.println("Healing!");
                 healingPool(gp.dialogueState);
             }
 
-            if(hit(0, 26, 20, "right")){
+            else if(hit(0, 26, 20, "right")){
                 System.out.println("Teleport!");
                 teleport(gp.dialogueState);
             }
             // teleports to two maps
-            if(hit(0, 10, 39, "any")){
+            else if(hit(0, 10, 39, "any")){
                 teleportToOtherMap(1, 12, 13);
             }
-            if(hit(1, 12, 13, "any")){
+            else if(hit(1, 12, 13, "any")){
                 teleportToOtherMap(0, 10, 39);
             }
 
@@ -85,7 +85,13 @@ public class EventHandler {
     }
 
     private void teleportToOtherMap(int map, int col, int row) {
-
+        gp.currentMap = map;
+        gp.player.worldX = gp.tileSize * col;
+        gp.player.worldY = gp.tileSize * row;
+        previousEventX = gp.player.worldX;
+        previousEventY = gp.player.worldY;
+        canTouchEvent = false;
+        gp.playSoundEffect(13);
     }
 
     // EVENTS
