@@ -104,8 +104,6 @@ public class GamePanel extends JPanel implements Runnable{
         aSetter.setNPC();
         aSetter.setMonster();
         aSetter.setInteractiveTile();
-        //playMusic(0);
-        //stopMusic();
         gameState = titleState;
         //fullscreen prepare:
         tempScreen = new BufferedImage(screenWidth, screenHeight, BufferedImage.TYPE_INT_ARGB);
@@ -116,7 +114,25 @@ public class GamePanel extends JPanel implements Runnable{
         if(fullScreenOn){
             setFullScreen();
         }
-        //setFullScreen();
+    }
+
+    public void retry(){
+        player.setDefaultPositions();
+        player.restoreLifeAndMana();
+        aSetter.setNPC();
+        aSetter.setMonster();
+        // restore world
+        aSetter.setObjects();
+        aSetter.setNPC();
+        aSetter.setMonster();
+        aSetter.setInteractiveTile();
+    }
+
+    public void restart(){
+        player.setDefaultPositions();
+        player.setDefaultValues();
+        player.restoreLifeAndMana();
+        player.setItems();
 
     }
 

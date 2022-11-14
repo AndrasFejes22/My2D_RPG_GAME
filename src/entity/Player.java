@@ -265,6 +265,7 @@ public class Player extends Entity{
         //game over:
         if(life <= 0){
             gp.gameState = gp.gameOverState;
+            gp.playSoundEffect(12);
         }
 
 
