@@ -267,6 +267,10 @@ public class Player extends Entity{
             mana = maxMana;
             gp.ui.addMessage("Your mana is full!");
         }
+        //game over:
+        if(life <= 0){
+            gp.gameState = gp.gameOverState;
+        }
 
 
         if(invincible){

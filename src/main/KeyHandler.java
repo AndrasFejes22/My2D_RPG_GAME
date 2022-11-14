@@ -203,6 +203,30 @@ public class KeyHandler implements KeyListener {
                 gp.player.selectItem();
             }
         }
+        // game over:
+        else if(gp.gameState == gp.gameOverState){
+            if(code == KeyEvent.VK_W){
+                gp.ui.commandNum--;
+                if(gp.ui.commandNum < 0){
+                    gp.ui.commandNum = 1;
+                }
+                gp.playSoundEffect(9);
+            }
+            if(code == KeyEvent.VK_S){
+                gp.ui.commandNum++;
+                if(gp.ui.commandNum > 1){
+                    gp.ui.commandNum = 0;
+                }
+                gp.playSoundEffect(9);
+            }
+            if(code == KeyEvent.VK_ENTER){
+                if(gp.ui.commandNum == 0){
+                    gp.gameState = gp.playState;
+                } else if (gp.ui.commandNum == 1){
+                    gp.gameState = gp.titleState;
+                }
+            }
+        }
         // game options:
         else if (gp.gameState == gp.optionsState){
             if(code == KeyEvent.VK_ESCAPE){

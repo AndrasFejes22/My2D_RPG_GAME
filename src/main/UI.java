@@ -135,9 +135,49 @@ public class UI {
         if(gp.gameState == gp.optionsState){
             drawOptionsScreen();
         }
+        //gameOver state
+        if(gp.gameState == gp.gameOverState){
+            drawGameOverScreen();
+        }
+    }
+
+    private void drawGameOverScreen() {
+        g2.setColor(new Color(0, 0, 0, 150));
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+
+        int messageX;
+        int messageY;
+        g2.setFont(g2.getFont().deriveFont(Font.BOLD, 100F));
+        String text = "Game Over!";
+
+        // shadow
+        g2.setColor(Color.BLACK);
+        messageX = getForCenteredText(text);
+        messageY = gp.tileSize*4;
+        g2.drawString(text, messageX , messageY);
+        // text:
+        g2.setColor(Color.WHITE);
+        g2.drawString(text, messageX-4 , messageY-4);
+
+        // Retry:
+        g2.setFont(g2.getFont().deriveFont(35F));
+        text = "Retry";
+        messageX = getForCenteredText(text);
+        messageY += gp.tileSize*4;
+        g2.drawString(text, messageX , messageY);
+        if(commandNum == 0) {
+            g2.drawString(">", messageX - 40, messageY);
+        }
 
 
-
+        // Back to the title screen:
+        text = "Quit";
+        messageX = getForCenteredText(text);
+        messageY += 70;
+        g2.drawString(text, messageX , messageY);
+        if(commandNum == 1) {
+            g2.drawString(">", messageX - 40, messageY);
+        }
 
 
     }
