@@ -53,16 +53,16 @@ public class Player extends Entity{
 
     public void setDefaultValues(){
         //player position V3
-        //worldX = gp.tileSize * 23;
-        //worldY = gp.tileSize * 21;
+        worldX = gp.tileSize * 23;
+        worldY = gp.tileSize * 21;
         //player position interior
-        worldX = gp.tileSize * 12;
-        worldY = gp.tileSize * 13;
+        //worldX = gp.tileSize * 12;
+        //worldY = gp.tileSize * 13;
         speed = 4;
         direction = "down";
 
         //player status:
-        maxLife = 10;
+        maxLife = 30;
         life = maxLife;
         maxMana = 4;
         mana = maxMana;
@@ -339,9 +339,9 @@ public class Player extends Entity{
 
     private void contactMonster(int monsterIndex) {
         if(monsterIndex != 999){
-            if(!invincible && !gp.monster[monsterIndex].dying){
+            if(!invincible && !gp.monster[gp.currentMap][monsterIndex].dying){
                 gp.playSoundEffect(6);
-                int damage = gp.monster[monsterIndex].attack - defense;
+                int damage = gp.monster[gp.currentMap][monsterIndex].attack - defense;
                 if(damage < 0){
                     damage = 1;
                 }
@@ -354,24 +354,24 @@ public class Player extends Entity{
 
     void damageMonster(int monsterIndex, int attack) {
         if(monsterIndex != 999){
-            if(!gp.monster[monsterIndex].invincible){
+            if(!gp.monster[gp.currentMap][monsterIndex].invincible){
                 gp.playSoundEffect(5);
 
-                int damage = attack - gp.monster[monsterIndex].defense;
+                int damage = attack - gp.monster[gp.currentMap][monsterIndex].defense;
                 if(damage < 0){
                     damage = 1;
                 }
-                gp.monster[monsterIndex].life -= damage;
+                gp.monster[gp.currentMap][monsterIndex].life -= damage;
                 gp.ui.addMessage(damage + " damage!");
-                gp.monster[monsterIndex].invincible = true;
-                gp.monster[monsterIndex].damageReaction();
+                gp.monster[gp.currentMap][monsterIndex].invincible = true;
+                gp.monster[gp.currentMap][monsterIndex].damageReaction();
 
-                if(gp.monster[monsterIndex].life <= 0){
+                if(gp.monster[gp.currentMap][monsterIndex].life <= 0){
                     // monster dies:
-                    gp.monster[monsterIndex].dying = true;
-                    gp.ui.addMessage("Killed the " + gp.monster[monsterIndex].name+ " !");
-                    gp.ui.addMessage("+ " + gp.monster[monsterIndex].exp + " XP");
-                    exp += gp.monster[monsterIndex].exp;
+                    gp.monster[gp.currentMap][monsterIndex].dying = true;
+                    gp.ui.addMessage("Killed the " + gp.monster[gp.currentMap][monsterIndex].name+ " !");
+                    gp.ui.addMessage("+ " + gp.monster[gp.currentMap][monsterIndex].exp + " XP");
+                    exp += gp.monster[gp.currentMap][monsterIndex].exp;
                     checkLevelUp();
                 }
             }
@@ -380,17 +380,17 @@ public class Player extends Entity{
     }
 
     private void damageInteractiveTile(int iTileIndex) {
-        if(iTileIndex != 999 && gp.iTile[iTileIndex].desctructible && gp.iTile[iTileIndex].isCorrectItem(this) && !gp.iTile[iTileIndex].invincible){
-            gp.iTile[iTileIndex].playSE(); // cuttree sound
-            gp.iTile[iTileIndex].life--; // (cuttable tree has 3 life!)
-            gp.iTile[iTileIndex].invincible = true;
+        if(iTileIndex != 999 && gp.iTile[gp.currentMap][iTileIndex].desctructible && gp.iTile[gp.currentMap][iTileIndex].isCorrectItem(this) && !gp.iTile[gp.currentMap][iTileIndex].invincible){
+            gp.iTile[gp.currentMap][iTileIndex].playSE(); // cuttree sound
+            gp.iTile[gp.currentMap][iTileIndex].life--; // (cuttable tree has 3 life!)
+            gp.iTile[gp.currentMap][iTileIndex].invincible = true;
 
             // create particles:
 
-            generateParticle(gp.iTile[iTileIndex], gp.iTile[iTileIndex]); //??
+            generateParticle(gp.iTile[gp.currentMap][iTileIndex], gp.iTile[gp.currentMap][iTileIndex]); //??
 
-            if(gp.iTile[iTileIndex].life == 0){
-                gp.iTile[iTileIndex] = gp.iTile[iTileIndex].getDestroyedForm(); // it will be a trunk when destroyed
+            if(gp.iTile[gp.currentMap][iTileIndex].life == 0){
+                gp.iTile[gp.currentMap][iTileIndex] = gp.iTile[gp.currentMap][iTileIndex].getDestroyedForm(); // it will be a trunk when destroyed
             }
 
         }
@@ -444,7 +444,7 @@ public class Player extends Entity{
             if(npcIndex != 999){
                 attackCanceled = true;
                 gp.gameState = gp.dialogueState;
-                gp.npc[0].speak();
+                gp.npc[gp.currentMap][0].speak();
             }
 
         }
@@ -454,10 +454,10 @@ public class Player extends Entity{
     public void pickUpObject(int index) {
         if (index != 999) {
             // pickup_only items:
-            if (gp.obj[index].type == type_pickupOnly) {
+            if (gp.obj[gp.currentMap][index].type == type_pickupOnly) {
 
-                gp.obj[index].use(this);
-                gp.obj[index] = null;
+                gp.obj[gp.currentMap][index].use(this);
+                gp.obj[gp.currentMap][index] = null;
 
             } else {
                 // inventory items:
@@ -465,14 +465,14 @@ public class Player extends Entity{
 
 
                 if (inventory.size() != maxInventorySize) {
-                    inventory.add(gp.obj[index]);
+                    inventory.add(gp.obj[gp.currentMap][index]);
                     gp.playSoundEffect(1);
-                    text = "Got a " + gp.obj[index].name + "!";
+                    text = "Got a " + gp.obj[gp.currentMap][index].name + "!";
                 } else {
                     text = "Your inventory is full!";
                 }
                 gp.ui.addMessage(text);
-                gp.obj[index] = null;
+                gp.obj[gp.currentMap][index] = null;
 
             }
         }
