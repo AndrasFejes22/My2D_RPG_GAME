@@ -9,6 +9,9 @@ public class EventHandler {
     EventRect eventRect [][][];
     int previousEventX;
     int previousEventY;
+    int tempMap;
+    int tempCol;
+    int tempRow;
     boolean canTouchEvent = true;
 
     public EventHandler(GamePanel gp) {
@@ -85,11 +88,18 @@ public class EventHandler {
     }
 
     private void teleportToOtherMap(int map, int col, int row) {
+        //change gameState:
+        gp.gameState = gp.transitionState;
+        tempMap = map;
+        tempCol = col;
+        tempRow = row;
+        /*
         gp.currentMap = map;
         gp.player.worldX = gp.tileSize * col;
         gp.player.worldY = gp.tileSize * row;
         previousEventX = gp.player.worldX;
         previousEventY = gp.player.worldY;
+        */
         canTouchEvent = false;
         gp.playSoundEffect(13);
     }
