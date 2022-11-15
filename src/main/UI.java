@@ -54,6 +54,9 @@ public class UI {
     // game options:
     int subState = 0;
 
+    // counter(s):
+    int transitionCounter = 0;
+
 
 
     public UI(GamePanel gp) {
@@ -139,6 +142,28 @@ public class UI {
         if(gp.gameState == gp.gameOverState){
             drawGameOverScreen();
         }
+        //Transition between maps state
+        if(gp.gameState == gp.transitionState){
+            drawTransition();
+        }
+    }
+
+    private void drawTransition() {
+        // The entire screen is getting darker:
+        transitionCounter++;
+        g2.setColor(new Color(0, 0, 0, transitionCounter * 5));
+        g2.fillRect(0, 0, gp.screenWidth, gp.screenHeight);
+        // stop it at some point:
+        if(transitionCounter == 50){
+            transitionCounter = 0;
+            gp.gameState = gp.playState;
+            gp.currentMap = gp.eHandler.tempMap;
+            gp.player.worldX = gp.tileSize * gp.eHandler.tempCol;
+            gp.player.worldY = gp.tileSize * gp.eHandler.tempRow;
+            gp.eHandler.previousEventX = gp.player.worldX;
+            gp.eHandler.previousEventY = gp.player.worldY;
+        }
+
     }
 
     private void drawGameOverScreen() {
