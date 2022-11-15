@@ -20,8 +20,7 @@ public class Player extends Entity{
     public final int screenY;
     int standCounter = 0;
     public boolean attackCanceled = false;
-    public ArrayList<Entity> inventory = new ArrayList<>();
-    public final int maxInventorySize = 20;
+
     //public int hasKey = 0;
     //public int hasBoots = 0;
 
@@ -73,7 +72,8 @@ public class Player extends Entity{
         exp = 0;
         nextLevelExp = 5;//how much exp yo need to level up
         coin = 0;
-        currentWeapon = new OBJ_Sword_Normal(gp);
+        //currentWeapon = new OBJ_Sword_Normal(gp);
+        currentWeapon = new OBJ_Axe(gp);
         currentShield = new OBJ_Shield_Wood(gp);
         projectile = new OBJ_Fireball(gp);
         attack = getAttack();
