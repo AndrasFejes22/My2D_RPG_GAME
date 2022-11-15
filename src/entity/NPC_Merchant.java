@@ -64,12 +64,15 @@ public class NPC_Merchant extends Entity{
 
     }
 
-    /*
+
     public void speak(){
         super.speak();
+        gp.gameState = gp.tradeState;
+        gp.ui.npc_merchant = this; // ?????????????? // We can access npc' inventory and other  ?
+
     }
 
-     */
+
 
 
 

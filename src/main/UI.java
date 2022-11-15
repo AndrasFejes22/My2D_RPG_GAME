@@ -57,6 +57,9 @@ public class UI {
     // counter(s):
     int transitionCounter = 0;
 
+    // npc:
+    public Entity npc_merchant; // We can access npc' inventory and other
+
 
 
     public UI(GamePanel gp) {
@@ -146,7 +149,25 @@ public class UI {
         if(gp.gameState == gp.transitionState){
             drawTransition();
         }
+        //Trade state
+        if(gp.gameState == gp.tradeState){
+            drawTradeScreen();
+        }
     }
+
+    private void drawTradeScreen() {
+
+        switch (subState){
+            case 0: trade_select(); break;
+            case 1: trade_buy(); break;
+            case 2: trade_sell(); break;
+        }
+
+    }
+    //trade substates:
+    public void trade_select(){}
+    public void trade_buy(){}
+    public void trade_sell(){}
 
     private void drawTransition() {
         // The entire screen is getting darker:
