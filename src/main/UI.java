@@ -229,6 +229,30 @@ public class UI {
         // draw npc inventory:
         drawInventory(npc_merchant, true);
 
+        //draw offer(hint) window:
+        int frameX = gp.tileSize*2;
+        int frameY = gp.tileSize*9;
+        int frameWidth= gp.tileSize * 6;
+        int frameHeight= (int) (gp.tileSize * 2);
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        g2.drawString("[ESC] Back", frameX+24, frameY+60);
+
+        //draw player coin window:
+        frameX = gp.tileSize*12;
+        frameY = gp.tileSize*9;
+        frameWidth= gp.tileSize * 6;
+        frameHeight= (int) (gp.tileSize * 2);
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        g2.drawString("Your coin: " + gp.player.coin, frameX+24, frameY+60);
+
+        // draw small price window:
+        frameX = (int) (gp.tileSize*5.5);
+        frameY = (int) (gp.tileSize*5.5);
+        frameWidth = (int) (gp.tileSize*2.5);
+        frameHeight= gp.tileSize ;
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+
     }
     public void trade_sell(){}
 
