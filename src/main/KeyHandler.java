@@ -172,7 +172,6 @@ public class KeyHandler implements KeyListener {
         else if (gp.gameState == gp.dialogueState){
             if(code == KeyEvent.VK_ENTER){
                 gp.gameState = gp.playState;
-
             }
         }
         // character state:
@@ -293,6 +292,30 @@ public class KeyHandler implements KeyListener {
                         gp.playSoundEffect(9);
                     }
                 }
+            }
+        }
+        // trade:
+        else if (gp.gameState == gp.tradeState){
+            if(code == KeyEvent.VK_ENTER){
+                enterPressed = true;
+            }
+            if(gp.ui.subState == 0){
+                // lehetne metódus**
+                if(code == KeyEvent.VK_W) {
+                    gp.ui.commandNum--;
+                    if(gp.ui.commandNum < 0){
+                        gp.ui.commandNum = 2;
+                    }
+                    gp.playSoundEffect(9);
+                }
+                if(code == KeyEvent.VK_S) {
+                    gp.ui.commandNum++;
+                    if(gp.ui.commandNum > 2){
+                        gp.ui.commandNum = 0;
+                    }
+                    gp.playSoundEffect(9);
+                }
+                //**idáig
             }
         }
 
