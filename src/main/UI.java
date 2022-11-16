@@ -162,10 +162,46 @@ public class UI {
             case 1: trade_buy(); break;
             case 2: trade_sell(); break;
         }
+        gp.keyH.enterPressed = false; //reset the enter input
 
     }
     //trade substates:
-    public void trade_select(){}
+    public void trade_select(){
+
+        drawDialogueScreen();
+
+        //create a frame:
+
+        int frameX = gp.tileSize*15;
+        int frameY = gp.tileSize*4;
+
+        int frameWidth= gp.tileSize * 3;
+        int frameHeight= (int) (gp.tileSize * 3.5);
+
+        // draw a window
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+
+        // draw text:
+        frameX += gp.tileSize;
+        frameY += gp.tileSize;
+        g2.drawString("Buy", frameX, frameY);
+        if(commandNum == 0) {
+            g2.drawString(">", frameX - 24, frameY);
+        }
+        frameY += gp.tileSize;
+        g2.drawString("Sell", frameX, frameY);
+        if(commandNum == 1) {
+            g2.drawString(">", frameX - 24, frameY);
+        }
+        frameY += gp.tileSize;
+        g2.drawString("Leave", frameX, frameY);
+        if(commandNum == 2) {
+            g2.drawString(">", frameX - 24, frameY);
+        }
+        frameY += gp.tileSize;
+
+
+    }
     public void trade_buy(){}
     public void trade_sell(){}
 
@@ -645,9 +681,9 @@ public class UI {
 
     private void drawDialogueScreen() {
         //create a dialogue window
-        int x = gp.tileSize * 2;
+        int x = gp.tileSize * 3;
         int y = gp.tileSize / 2;
-        int width = gp.screenWidth - (gp.tileSize * 4);
+        int width = gp.screenWidth - (gp.tileSize * 6);
         int height = gp.tileSize * 4;
         drawSubWindow (x, y, width, height);
 

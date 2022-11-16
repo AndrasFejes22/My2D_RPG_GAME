@@ -1,5 +1,7 @@
 package main;
 
+import entity.Entity;
+
 import java.awt.*;
 
 public class EventHandler {
@@ -79,12 +81,21 @@ public class EventHandler {
             else if(hit(1, 12, 13, "any")){
                 teleportToOtherMap(0, 10, 39);
             }
+            // speak to merchant:
+            else if(hit(1, 12, 9, "up")){
+                speak(gp.npc[1][0]);
+            }
 
         }
 
+    }
 
-
-
+    private void speak(Entity entity) {
+        if(gp.keyH.enterPressed){
+            gp.gameState = gp.dialogueState;
+            gp.player.attackCanceled = true;
+            entity.speak();
+        }
     }
 
     private void teleportToOtherMap(int map, int col, int row) {
