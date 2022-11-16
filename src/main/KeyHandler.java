@@ -1,9 +1,7 @@
 package main;
 
-import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.image.BufferedImage;
 
 public class KeyHandler implements KeyListener {
 
@@ -181,26 +179,26 @@ public class KeyHandler implements KeyListener {
             }
             // WASD navigating in inventory screen
             if(code == KeyEvent.VK_W){
-                if(gp.ui.slotRow != 0){
-                    gp.ui.slotRow--;
+                if(gp.ui.playerSlotRow != 0){
+                    gp.ui.playerSlotRow--;
                     gp.playSoundEffect(9);
                 }
             }
             if(code == KeyEvent.VK_A){
-                if(gp.ui.slotCol != 0) {
-                    gp.ui.slotCol--;
+                if(gp.ui.playerSlotCol != 0) {
+                    gp.ui.playerSlotCol--;
                     gp.playSoundEffect(9);
                 }
             }
             if(code == KeyEvent.VK_S){
-                if(gp.ui.slotRow != 3) {
-                    gp.ui.slotRow++;
+                if(gp.ui.playerSlotRow != 3) {
+                    gp.ui.playerSlotRow++;
                     gp.playSoundEffect(9);
                 }
             }
             if(code == KeyEvent.VK_D){
-                if(gp.ui.slotCol != 4) {
-                    gp.ui.slotCol++;
+                if(gp.ui.playerSlotCol != 4) {
+                    gp.ui.playerSlotCol++;
                     gp.playSoundEffect(9);
                 }
             }
