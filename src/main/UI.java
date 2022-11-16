@@ -217,6 +217,11 @@ public class UI {
 
     }
     public void trade_buy(){
+        // draw player inventory:
+        drawInventory(gp.player, false);
+
+        // draw npc inventory:
+        drawInventory(npc_merchant, true);
 
     }
     public void trade_sell(){}
