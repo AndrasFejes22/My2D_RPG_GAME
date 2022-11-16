@@ -1,6 +1,7 @@
 package main;
 
 import entity.Entity;
+import object.OBJ_Coin_Bronze;
 import object.OBJ_Heart;
 import object.OBJ_ManaCrystal;
 
@@ -15,13 +16,14 @@ public class UI {
 
     GamePanel gp;
     Graphics2D g2;
-    //images:
 
+    //images:
     BufferedImage heart_full;
     BufferedImage heart_half;
     BufferedImage heart_blank;
     BufferedImage crystal_full;
     BufferedImage crystal_blank;
+    BufferedImage coin;
 
     //Fonts:
     Font arial_40;
@@ -95,9 +97,10 @@ public class UI {
         heart_blank = heart.image3;
         //mana
         Entity crystal = new OBJ_ManaCrystal(gp);
+        Entity bronzeCoin = new OBJ_Coin_Bronze(gp);
         crystal_full = crystal.image;
         crystal_blank = crystal.image2;
-
+        coin = bronzeCoin.down1;
 
     }
 
@@ -246,11 +249,15 @@ public class UI {
         g2.drawString("Your coin: " + gp.player.coin, frameX+24, frameY+60);
 
         // draw small price window:
-        frameX = (int) (gp.tileSize*5.5);
-        frameY = (int) (gp.tileSize*5.5);
-        frameWidth = (int) (gp.tileSize*2.5);
-        frameHeight= gp.tileSize ;
-        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        int itemIndex = getItemIndexOnSlot(npcSlotCol, npcSlotRow);
+        if(itemIndex < npc_merchant.inventory.size()) {
+            frameX = (int) (gp.tileSize * 5.5);
+            frameY = (int) (gp.tileSize * 5.5);
+            frameWidth = (int) (gp.tileSize * 2.5);
+            frameHeight = gp.tileSize;
+            drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+            g2.drawImage(coin, frameX+10, frameY+8, 32, 32, null);
+        }
 
 
     }
