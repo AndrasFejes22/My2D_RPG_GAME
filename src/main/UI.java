@@ -217,8 +217,14 @@ public class UI {
 
     }
     public void trade_buy(){
+
+        // set text's features again
+        g2.setFont(gabriola);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 30F));
+
         // draw player inventory:
-        drawInventory(gp.player, false);
+        drawInventory(gp.player, false); //eredeti
+        //drawInventory(gp.player, true);
 
         // draw npc inventory:
         drawInventory(npc_merchant, true);
@@ -899,8 +905,8 @@ public class UI {
 
         // cursor:
         if(cursor) {
-            int cursorX = slotXStart + (slotSize * playerSlotCol);
-            int cursorY = slotYStart + (slotSize * playerSlotRow);
+            int cursorX = slotXStart + (slotSize * slotCol);
+            int cursorY = slotYStart + (slotSize * slotRow);
             int cursorWidth = gp.tileSize;
             int cursorHeight = gp.tileSize;
 

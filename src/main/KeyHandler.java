@@ -293,11 +293,13 @@ public class KeyHandler implements KeyListener {
                     gp.playSoundEffect(9);
                 }
                 //**idáig
-                if(gp.ui.subState == 1){
-                    npcInventory(code);
-                    if(code == KeyEvent.VK_ESCAPE){
-                        gp.ui.subState = 0;
-                    }
+
+            }
+            if(gp.ui.subState == 1){
+                npcInventory(code);
+
+                if(code == KeyEvent.VK_ESCAPE){
+                    gp.ui.subState = 0;
                 }
             }
         }
