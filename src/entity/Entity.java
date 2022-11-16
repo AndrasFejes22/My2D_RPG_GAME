@@ -93,6 +93,7 @@ public class Entity {
     public int value;
     public int defenseValue;
     public int useCost;
+    public int price;
     public String description = "";
 
     //Type

@@ -71,7 +71,7 @@ public class Player extends Entity{
         dexterity = 1;
         exp = 0;
         nextLevelExp = 5;//how much exp yo need to level up
-        coin = 0;
+        coin = 700;
         //currentWeapon = new OBJ_Sword_Normal(gp);
         currentWeapon = new OBJ_Axe(gp);
         currentShield = new OBJ_Shield_Wood(gp);

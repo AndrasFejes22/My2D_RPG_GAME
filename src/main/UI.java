@@ -257,6 +257,31 @@ public class UI {
             frameHeight = gp.tileSize;
             drawSubWindow(frameX, frameY, frameWidth, frameHeight);
             g2.drawImage(coin, frameX+10, frameY+8, 32, 32, null);
+
+            int price = npc_merchant.inventory.get(itemIndex).price;
+            String text = "" + price;
+            frameX = getXForAlignToRightText(text, gp.tileSize*8 - 20);
+            g2.drawString(text, frameX, frameY+34);
+
+            // buy items:
+            if(gp.keyH.enterPressed){
+                if(npc_merchant.inventory.get(itemIndex).price > gp.player.coin){
+                    subState = 0;
+                    gp.gameState = gp.dialogueState;
+                    currentDialogue = "You nee more coin to buy that\n my dear friend.";
+                    drawDialogueScreen();
+                }
+                else if(gp.player.inventory.size() == gp.player.maxInventorySize){
+                    gp.gameState = gp.dialogueState;
+                    currentDialogue = "You cannot carry more items!";
+                    drawDialogueScreen();
+                } else {
+                    gp.player.coin -= npc_merchant.inventory.get(itemIndex).price;
+                    gp.player.inventory.add(npc_merchant.inventory.get(itemIndex));
+                }
+            }
+
+
         }
 
 
