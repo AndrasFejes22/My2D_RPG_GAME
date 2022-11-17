@@ -286,7 +286,70 @@ public class UI {
 
 
     }
-    public void trade_sell(){}
+    public void trade_sell(){
+
+        // set text's features again
+        g2.setFont(gabriola);
+        g2.setFont(g2.getFont().deriveFont(Font.PLAIN, 30F));
+
+        // draw player's inventory:
+        drawInventory(gp.player, true);
+
+        int frameX ;
+        int frameY ;
+        int frameWidth;
+        int frameHeight;
+
+        //draw offer(hint) window:
+        frameX = gp.tileSize*2;
+        frameY = gp.tileSize*9;
+        frameWidth= gp.tileSize * 6;
+        frameHeight= (int) (gp.tileSize * 2);
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        g2.drawString("[ESC] Back", frameX+24, frameY+60);
+
+        //draw player coin window:
+        frameX = gp.tileSize*12;
+        frameY = gp.tileSize*9;
+        frameWidth= gp.tileSize * 6;
+        frameHeight= (int) (gp.tileSize * 2);
+        drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+        g2.drawString("Your coin: " + gp.player.coin, frameX+24, frameY+60);
+
+        // draw small price window:
+        int itemIndex = getItemIndexOnSlot(playerSlotCol, playerSlotRow);
+        if(itemIndex < gp.player.inventory.size()) {
+            frameX = (int) (gp.tileSize * 15.5);
+            frameY = (int) (gp.tileSize * 5.5);
+            frameWidth = (int) (gp.tileSize * 2.5);
+            frameHeight = gp.tileSize;
+            drawSubWindow(frameX, frameY, frameWidth, frameHeight);
+            g2.drawImage(coin, frameX+10, frameY+8, 32, 32, null);
+
+            int price = (int) (gp.player.inventory.get(itemIndex).price*0.75); //selling: reduce price
+            String text = "" + price;
+            frameX = getXForAlignToRightText(text, gp.tileSize*18 - 20);
+            g2.drawString(text, frameX, frameY+34);
+
+            // sell items:
+            if(gp.keyH.enterPressed){
+                //prevent selling current weapon/shield:
+                if(gp.player.inventory.get(itemIndex) == gp.player.currentWeapon || gp.player.inventory.get(itemIndex) == gp.player.currentShield){
+                    commandNum = 0;
+                    subState = 0;
+                    gp.gameState = gp.dialogueState;
+                    currentDialogue = "You cannot sell an equipped item!";
+                    drawDialogueScreen();
+                } else {
+                    gp.player.inventory.remove(itemIndex);
+                    gp.player.coin += price;
+                }
+            }
+
+
+        }
+
+    }
 
     private void drawTransition() {
         // The entire screen is getting darker:

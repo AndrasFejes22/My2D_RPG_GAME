@@ -295,13 +295,21 @@ public class KeyHandler implements KeyListener {
                 //**idáig
 
             }
-            if(gp.ui.subState == 1){
+            if(gp.ui.subState == 1){//buy
                 npcInventory(code);
 
                 if(code == KeyEvent.VK_ESCAPE){
                     gp.ui.subState = 0;
                 }
             }
+            if(gp.ui.subState == 2){//sell
+                playerInventory(code);
+
+                if(code == KeyEvent.VK_ESCAPE){
+                    gp.ui.subState = 0;
+                }
+            }
+
         }
 
     }
