@@ -58,7 +58,7 @@ public class GamePanel extends JPanel implements Runnable{
     public ArrayList<Entity> particleList = new ArrayList<>();
 
     //tiles
-    TileManager tileM = new TileManager(this);
+    public TileManager tileM = new TileManager(this);
 
     //collision
     public CollisionChecker cChecker = new CollisionChecker(this);
