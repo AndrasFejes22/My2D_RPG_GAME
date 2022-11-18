@@ -424,5 +424,20 @@ public class Entity {
 
     public void searchPath(int goalCol, int goalRow){
 
+        int startCol =(worldX +solidArea.x)/gp.tileSize;
+        int startRow =(worldY +solidArea.y)/gp.tileSize;
+
+        // call setNodes()
+        gp.pFinder.setNodes(startCol, startRow, goalCol, goalRow);
+
+        // call search()
+        if(gp.pFinder.search()){ // it found a path
+
+            // next worldX & worldY:
+            int nextX = gp.pFinder.pathList.get(0).col * gp.tileSize;
+            int nextY = gp.pFinder.pathList.get(0).row * gp.tileSize;
+        }
+
+
     }
 }

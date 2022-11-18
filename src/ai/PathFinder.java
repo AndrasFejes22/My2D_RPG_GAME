@@ -130,7 +130,7 @@ public class PathFinder {
         node.fCost = node.gCost + node.hCost;
     }
 
-    public boolean Search() {
+    public boolean search() {
 
         while (goalReached == false && step < 500) {
 

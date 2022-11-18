@@ -1,5 +1,6 @@
 package main;
 
+import ai.PathFinder;
 import entity.Entity;
 import entity.Player;
 import interactiveTiles.InteractiveTile;
@@ -79,6 +80,9 @@ public class GamePanel extends JPanel implements Runnable{
 
     //EventHandler
     public EventHandler eHandler = new EventHandler(this);
+
+    // PathFinder:
+    public PathFinder pFinder = new PathFinder(this);
 
     // game state
     public int gameState;
