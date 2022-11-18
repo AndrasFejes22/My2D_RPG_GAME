@@ -23,6 +23,7 @@ public class Entity {
     public boolean dying = false;
     public boolean alive = true;
     public boolean hpBarOn = false;
+    public boolean onPath = false;
 
     // boy walking:
     public BufferedImage up1;
@@ -217,9 +218,7 @@ public class Entity {
         }
     }
 
-    public void update(){
-        setAction();
-
+    public void checkCollision(){
         collisionOn = false;
         gp.cChecker.checkTile(this);
         gp.cChecker.checkObject(this, false);
@@ -233,6 +232,13 @@ public class Entity {
         if(this.type == type_monster && contactPlayer){
             damagePlayer(attack);
         }
+    }
+
+    public void update(){
+        setAction();
+
+        //collision check:
+        checkCollision();
 
         //if collision is false, Entity can move
         if(collisionOn == false){
@@ -411,6 +417,12 @@ public class Entity {
 
     public void changeAlpha(Graphics2D g2, float alphaValue){
         g2.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, alphaValue));
+
+    }
+
+    /////////////////////////// SEARCH ////////////////////////////
+
+    public void searchPath(int goalCol, int goalRow){
 
     }
 }
