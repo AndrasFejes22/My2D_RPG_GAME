@@ -98,6 +98,7 @@ public class PathFinder {
                 if (gp.iTile[gp.currentMap][i] != null && gp.iTile[gp.currentMap][i].desctructible) {
                     int itCol = gp.iTile[gp.currentMap][i].worldX / gp.tileSize;
                     int itRow = gp.iTile[gp.currentMap][i].worldY / gp.tileSize;
+                    node[itCol][itRow].solid = true;
                 }
             }
             // set cost
