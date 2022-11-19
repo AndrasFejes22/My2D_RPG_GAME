@@ -19,7 +19,8 @@ public class NPC_OldMan extends Entity{
         //ezt én tettem bele: Entity felülírása:
         solidArea.x = 0;
         solidArea.y = 16;
-        solidArea.width = 48;
+        //solidArea.width = 48;
+        solidArea.width = 32;
         solidArea.height = 32;
         solidAreaDefaultX = solidArea.x;
         solidAreaDefaultY = solidArea.y;

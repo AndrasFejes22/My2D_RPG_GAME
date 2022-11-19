@@ -52,11 +52,11 @@ public class Player extends Entity{
 
     public void setDefaultValues(){
         //player position V3
-        //worldX = gp.tileSize * 23;
-        //worldY = gp.tileSize * 21;
+        worldX = gp.tileSize * 23;
+        worldY = gp.tileSize * 21;
         //player position interior // a map a GamePanelben állitható
-        worldX = gp.tileSize * 11;
-        worldY = gp.tileSize * 11;
+        //worldX = gp.tileSize * 11;
+        //worldY = gp.tileSize * 11;
         speed = 4;
         direction = "down";
 
