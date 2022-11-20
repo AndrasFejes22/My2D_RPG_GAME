@@ -52,40 +52,61 @@ public class MON_GreenSlime extends Entity{
 
     public void setAction(){ // kind of AI :) //movement in circle
 
-        actionLockCounter++;
+        if(onPath){ // pathfinding
 
-        if(actionLockCounter == 120){
-            Random random = new Random();
-            int i = random.nextInt(100)+1;
+            // 1.: Goal: old man's home
+            //int goalCol = 12; //old man's home
+            //int goalRow = 9;
 
-            if(i <= 25){
-                direction = "up";
-            }
-            if(i > 25 && i <= 50){
-                direction = "down";
-            }
-            if(i > 50 && i <= 75){
-                direction = "left";
-            }
-            if(i > 75 && i <= 100){
-                direction = "right";
+            //2.: Goal: player's position, so the Old man follows the player**:
+
+            int goalCol = (gp.player.worldX + gp.player.solidArea.x) / gp.tileSize;
+            int goalRow = (gp.player.worldY + gp.player.solidArea.y) / gp.tileSize;
+
+            searchPath(goalCol, goalRow);
+
+            int i = new Random().nextInt(100) + 1;
+            if(i > 99 && !projectile.alive && shotAvailableCounter == 30){
+                projectile.set(worldX, worldY, direction , true, this);
+                gp.projectileList.add(projectile);
+                shotAvailableCounter = 0;
             }
 
-            actionLockCounter = 0;
+        } else { // not smart (circle) movement
+
+            actionLockCounter++;
+
+            if (actionLockCounter == 120) {
+                Random random = new Random();
+                int i = random.nextInt(100) + 1;
+
+                if (i <= 25) {
+                    direction = "up";
+                }
+                if (i > 25 && i <= 50) {
+                    direction = "down";
+                }
+                if (i > 50 && i <= 75) {
+                    direction = "left";
+                }
+                if (i > 75 && i <= 100) {
+                    direction = "right";
+                }
+
+                actionLockCounter = 0;
+            }
         }
 
-        int i = new Random().nextInt(100) + 1;
-        if(i > 99 && !projectile.alive && shotAvailableCounter == 30){
-            projectile.set(worldX, worldY, direction , true, this);
-            gp.projectileList.add(projectile);
-            shotAvailableCounter = 0;
-        }
+        /*
+
+        */
 
     }
 
     public void damageReaction(){
         actionLockCounter = 0;
-        direction = gp.player.direction; // when attacked moving away from the player
+        //direction = gp.player.direction; // when attacked moving away from the player
+        onPath = true;// when attacked, start chasing the player
     }
 
     public void checkDrop(){

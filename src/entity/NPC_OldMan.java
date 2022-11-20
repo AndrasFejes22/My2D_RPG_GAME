@@ -61,8 +61,14 @@ public class NPC_OldMan extends Entity{
 
         if(onPath){ // pathfinding
 
-            int goalCol = 12; //old man's home
-            int goalRow = 9;
+            // 1.: Goal: old man's home
+            //int goalCol = 12; //old man's home
+            //int goalRow = 9;
+
+            //2.: Goal: player's position, so the Old man follows the player**:
+
+            int goalCol = (gp.player.worldX + gp.player.solidArea.x) / gp.tileSize;
+            int goalRow = (gp.player.worldY + gp.player.solidArea.y) / gp.tileSize;
 
             searchPath(goalCol, goalRow);
 

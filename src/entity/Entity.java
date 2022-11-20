@@ -489,12 +489,14 @@ public class Entity {
                 }
             }
 
-            // If reaches te goal, stop the search:
+            // If reaches te goal, stop the search: **follow state: disable this!
+            /*
             int nextCol = gp.pFinder.pathList.get(0).col;
             int nextRow = gp.pFinder.pathList.get(0).row;
             if(nextCol == goalCol && nextRow == goalRow){
                 onPath = false;
             }
+            */
 
         }
 
